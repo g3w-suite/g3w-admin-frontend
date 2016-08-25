@@ -1,6 +1,7 @@
-try:
-    from django.conf.urls import *
-except ImportError:  # django < 1.4
-    from django.conf.urls.defaults import *
+from django.conf.urls import url
+from .views import *
 
-# place app url patterns here
+urlpatterns = [
+
+    url(r'^$', FrontendView.as_view(), name='frontend'),
+]
