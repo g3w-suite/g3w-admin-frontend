@@ -490,7 +490,7 @@ html.ie7 .icon-home {
 
 /* 5. Intro */
 .home-block {
-	background: #fff url(../images/photo-img.jpg) no-repeat top left;
+	background: #fff url(../images/mondo.png) no-repeat top left;
 	color: #58585a;
 	height: 100%;
 	float: left;
@@ -1089,4 +1089,9 @@ article {
 
 @media only screen and (min-width: 1171px) and (max-width: 1350px) {
 .home-block h1 {font-size:80px}
+}
+
+.img-circle {
+	width: 100px;
+	height: 100px;
 }

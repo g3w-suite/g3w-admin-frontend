@@ -2,6 +2,10 @@
 
 $(document).ready(function($) {
   "use strict";
+
+	// just contun <a> in .colours for calc menu height buttons
+	var menu_items_number = $('.colours').find('a').length;
+
 	window.ios = navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/);
 	
 	$('.colours > a > span').each(function() {
@@ -11,16 +15,16 @@ $(document).ready(function($) {
 	var window_height = ($(window).height() > 600) ? $(window).height() : 600;
 	
 	$('.colours').css({'height': window_height});
-	$('.colour').css('height', Math.floor(window_height/5) );
-	$('.colour').last().css('height', Math.floor(window_height/5) + window_height%5);
+	$('.colour').css('height', Math.floor(window_height/menu_items_number) );
+	$('.colour').last().css('height', Math.floor(window_height/menu_items_number) + window_height%menu_items_number);
 	
 	$('.circle, .home-block').height($('.colours').height());
 	
 	$(window).resize(function() {
 		var window_height = ($(window).height() > 700) ? $(window).height() : 700;
 		
-		$('.colour').css('height', Math.floor(window_height/5) );
-		$('.colour').last().css('height', Math.floor(window_height/5) + window_height%5);
+		$('.colour').css('height', Math.floor(window_height/menu_items_number) );
+		$('.colour').last().css('height', Math.floor(window_height/menu_items_number) + window_height%menu_items_number);
 		$('.colours').css({'height': window_height});
 		$('.circle, .home-block').height($('.colours').height());
 		

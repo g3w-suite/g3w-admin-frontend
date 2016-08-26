@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prime Responsive Portfolio Template</title>
+<title>G3W-SUITE</title>
 <!-- CSS  -->
 <link rel="stylesheet" href="{% static 'frontend/css/bootstrap.min.css' %}" type="text/css" media="all">
 <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}" type="text/css" media="all">
@@ -37,7 +37,7 @@
          -->
         <div class="subtitle">Geosuite</div>
         <h1 class="tk-source-sans-pro">G3W-SUITE</h1>
-        <div class="home-content"> <img src="{% static 'frontend/images/logo.png' %}" alt="logo"><br>
+        <div class="home-content"> <img src="{% static 'frontend/images/logo_gis3w_circolare.png' %}" alt="logo"><br>
           <br><br>
          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. <br>
             Morbi ornare lectus quis justo gravida semper. </p>
@@ -54,7 +54,7 @@
     <div class="col-lg-5 ol-md-5 col-sm-12 col-xs-12">
       <div class="colours tk-museo-sans stuck "> 
       <a href="#" class="colour_link who_we_are" data-current="false">
-      <span data-colour="#f2b701" data-name="about_us" class="colour" >
+      <span data-colour="#f2b701" data-name="about_it" class="colour" >
       <span>
       <i class="menu-img icon-globe"></i>
        {% trans 'About It' %}
@@ -64,7 +64,7 @@
         </a> 
        
        <a href="#" class="colour_link guestbook" data-current="false">
-       <span data-colour="#dc0030" data-name="what_we_do" class="colour" >
+       <span data-colour="#dc0030" data-name="groups" class="colour" >
        <span>
         <i class="menu-img icon-map"></i>
         {% trans 'Maps' %}
@@ -74,7 +74,7 @@
         </a>
         
         <a href="#" class="colour_link products" data-current="false">
-        <span data-colour="#7c378a" data-name="products" class="colour">
+        <span data-colour="#7c378a" data-name="login" class="colour">
         <span>
         <i class="menu-img icon-lock"></i>
         {% trans 'Login' %}
@@ -82,27 +82,7 @@
         </span>
         </span>
         </a>
-        
-        <a href="#" class="colour_link faqs" data-current="false">
-        <span data-colour="#3465aa" data-name="contact_us" class="colour" >
-        <span>
-        <i class="menu-img icon-envelope"></i>
-        Contact Us
-  
-        </span>
-        </span>
-        </a>
-        <!--
-        <a href="#" class="colour_link blog" data-current="false">
-        <span data-colour="#7cb854" data-name="blog" class="colour" >
-        <span>
-        <i class="menu-img icon-bubbles"></i>
-        Blog
 
-        </span>
-        </span>
-        </a>
-         -->
         </div>
     </div>
   </div>
@@ -123,7 +103,7 @@
 </div>
 
    <!-- about-->
-    <div class="about_us hidden">
+    <div class="about_it hidden">
       <div class="page_name tk-museo-sans">{% trans 'About It' %}</div>
       <h1 class="tk-source-sans-pro">{%  trans 'G3W-SUITE is a geo suite administration system' %}.</h1>
 
@@ -149,7 +129,7 @@
     </div>
   
   <!-- What we do-->  
-<div class="what_we_do hidden">
+<div class="groups hidden">
   <div class="page_name tk-museo-sans">{% trans 'Maps' %}</div>
   <h1 class="tk-source-sans-pro">{% trans 'Group maps on db' %}</h1>
   <div class="paragraphs tk-source-sans-pro">
@@ -162,7 +142,7 @@
         <!-- Service -->
         <div class="col-md-4">
           <div class="box">
-            <div class="icon"> <img src="{% static 'frontend/images/icon-1.png' %}" alt=""> </div>
+            <div class="icon"> <img class="img-circle" src="{{ MEDIA_URL }}{{ group.header_logo_img }}" alt=""> </div>
             <h5>{{ group.title }}</h5>
             <hr>
             <!--<p> {{ group.description|safe }}</p>-->
@@ -195,8 +175,31 @@
 </div>
 
 
+<!-- Maps -->
+{% for group in groups %}
+<div class="maps-{{ group.slug }} hidden">
+<div class="page_name tk-museo-sans">{{ group.title }}</div>
+<h1 class="tk-source-sans-pro">{% trans 'Group maps' %}</h1>
+<div class="paragraphs tk-source-sans-pro">
+<div class="normal-text">{{ group.description }}</div>
+</div>
+{% with group.getProjects as projects %}
+{% for project in projects %}
+    <div class="paragraphs no-columns tk-source-sans-pro">
+        <div class="block row">
+          <div class="col-md-12">
+            {{ project.title }}
+          </div>
+    </div>
+    </div>
+{% endfor %}
+{% endwith %}
+</div>
+{% endfor %}
+
+
 <!-- work -->
-<div class="products hidden">
+<div class="login hidden">
 <div class="page_name tk-museo-sans">{% trans 'Login' %}</div>
 <h1 class="tk-source-sans-pro">{% trans 'Login to  get backind administration system' %}</h1>
 <div class="paragraphs tk-source-sans-pro">
@@ -218,90 +221,9 @@
 </div>
 </div>
 
-<!-- Contact us -->
-<div class="contact_us hidden">
-<div class="page_name tk-museo-sans">CONTACT US</div>
-<h1 class="tk-source-sans-pro">Nulla tellus mi, vulputate adipiscing</h1>
-<div class="paragraphs tk-source-sans-pro">
-  <div class="normal-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. </div>
-  <br>
 
-  <div class="paragraphs no-columns tk-source-sans-pro">
-    <div class="block row">
-    <div style="margin-left:15px">
-        <iframe  height="280" frameborder="0" style="border:0; width:100%" src="https://www.google.com/maps/embed/v1/place?q=Shopify, Ottawa 150 Elgin Street, 8th Floor Ottawa, ON, Canada&key=AIzaSyAVk-o-EKPBOgtHwdNY1zJvcqKWM-g1drI"></iframe>
-        <address >
-        <strong>ThemesGround, Inc.</strong>
-        Main Rd,
-        San Francisco, CA 94107,
-        Phone: (123) 456-7987
-        </address>
-      </div>
-      <div class="col-md-6">
-        <form class="contact-form" >
-          <input type="text" class="form-control" id="fname" name="fname" placeholder="Your Full Name">
-          <input type="email" class="form-control" id="email" name="email" placeholder="Your E-mail">
-          <input type="text" class="form-control" id="subj" name="subj" placeholder="Your Subject">
-          <textarea id="mssg" name="mssg" placeholder="Your Message" class="form-control" rows="10"></textarea>
-          <button class="submit-btn" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."> Send</button>
-        </form>
-        <div id="result-message" role="alert"></div>
-      </div>
 
-    </div>
-  </div>
-</div>
-</div>
 
-<!-- Blog -->
-<div class="blog hidden"> 
-  <div class="page_name tk-museo-sans">BLOG</div>
-   <h1 class="tk-source-sans-pro"></h1>
-  <div class="paragraphs no-columns tk-source-sans-pro">
-  <div class="paragraphs tk-source-sans-pro">
-  
-    <article>
-      <header class="entry-header">
-        <span>Wednesday 17 April.</span>
-        <h1 class="entry-title"> <a href="#">A example blog post with image</a> </h1>
-      </header>
-      <!-- .entry-header -->
-      
-      <div class="entry-content">
-        <div class="wp-caption"><a href="#"><img alt="blog image" src={% static 'frontend/images/post-thumb.jpg' %}" ></a>
-          <p class="wp-caption-text">orquatos nihil utuntur liberamur benivole epularum evertunt accommodare, democrito didicerimus occulta egregios, praeclaram familiaritatem novi accusamus delectus opinemur mutae expetenda perpauca eas, concederetur fecerit ignorare delectari industria patientiamque. Invenire probes contereret maior opinor iucundo inciderint depravate, concupiscunt, deorum didicerimus, solitudo ingeniis confectum attento illustribus. Quanta suam, quieti usu necessarius. Sapienter existimo fruenda contentiones deduceret dolere minuti animi scientia, inbecilloque servire evertunt.</p>
-        </div>
-      </div>
-      <!-- .entry-content --> 
-    </article>
-    <!-- #post -->
-    <article>
-      <header class="entry-header">
-        <span>Sunday 17 March.</span>
-        <h1 class="entry-title"> <a href="#">A example blog post without image</a> </h1>
-      </header>
-      <!-- .entry-header -->
-      
-      <div class="entry-content">
-        <p>Torquatos nihil utuntur liberamur benivole epularum evertunt accommodare, democrito didicerimus occulta egregios, praeclaram familiaritatem novi accusamus delectus opinemur mutae expetenda perpauca eas, concederetur fecerit ignorare delectari industria patientiamque.</p>
-        <p> Invenire probes contereret maior opinor iucundo inciderint depravate, concupiscunt, deorum didicerimus, solitudo ingeniis confectum attento illustribus. Quanta suam, quieti usu necessarius. Sapienter existimo fruenda contentiones deduceret dolere minuti animi scientia, inbecilloque servire evertunt. Exeduntur vivi laudatum dicitur omnia verterem fuerit inanitate efficiatur</p>
-        <p>orquatos nihil utuntur liberamur benivole epularum evertunt accommodare, democrito didicerimus occulta egregios, praeclaram familiaritatem novi accusamus delectus opinemur mutae expetenda perpauca eas, concederetur fecerit ignorare delectari industria patientiamque. Invenire probes contereret maior opinor iucundo inciderint depravate, concupiscunt, deorum didicerimus, solitudo ingeniis confectum attento illustribus. Quanta suam, quieti usu necessarius. Sapienter existimo fruenda contentiones deduceret dolere minuti animi scientia, inbecilloque servire evertunt.</p>
-        <ul>
-          <li>Mobile applications for iPhone, Blackberry and Android</li>
-          <li>Having access to company directories from any device</li>
-          <li>Fixed mobile convergence</li>
-          <li>Find me/follow me capabilities</li>
-          <li>Capability to transfer and record calls from your mobile phone to another number or extension too</li>
-          <li>The ability to make calls from your mobile device as if it were an office extension</li>
-        </ul>
-        <p>Need more information? Contact us today! Like or Tweet about us and stay tuned for Part Two!</p>
-      </div>
-      <!-- .entry-content --> 
-    </article>
-    <!-- #post --> 
-  </div>
-</div>
-</div>
 <!-- #main .wrapper --> 
 <!-- #page --> 
 
