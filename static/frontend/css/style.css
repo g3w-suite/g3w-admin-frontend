@@ -1101,3 +1101,8 @@ article {
 	margin-left: 30px;
 	margin-right: 30px;
 }
+
+.login-errors {
+	font-weight: bold;
+	color: #ff0000;
+}

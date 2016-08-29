@@ -98,7 +98,28 @@ $(document).ready(function($) {
 			event.preventDefault();
 
 			var form = $(this).parents('form');
-			$.post(form.attr('action'), form.serialize());
+			$.post(form.attr('action'), form.serialize()).done(function(res){
+				if (res.status == 'ok'){
+					window.location.reload();
+				} else {
+					var login_errors = form.find('.login-errors');
+					var ke;
+					var msg_errors = '';
+					for (ke in res.errors_form){
+						if (ke == '__all__'){
+							for (var line in res.errors_form[ke]){
+								msg_errors += res.errors_form[ke][line];
+							}
+						} else {
+							msg_errors += ke + ': ' + res.errors_form[ke] + '<br />';
+						}
+					}
+					login_errors.removeClass('hidden').html(msg_errors);
+				}
+
+			}).fail(function(e){
+				alert('errors');
+			});
 
 		});
 	};

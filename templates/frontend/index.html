@@ -140,6 +140,7 @@
       <div class="row">
 
         {% for group in groups %}
+        {% get_obj_perms user for group as "group_perms" %}
         <!-- Service -->
         <div class="col-md-4">
           <div class="box group-box"  data-name="maps-{{ group.slug }}">
@@ -203,10 +204,12 @@
     <div class="paragraphs no-columns tk-source-sans-pro">
     <div class="block row">
       <div class="col-md-6">
+
         <form class="contact-form" action="{% url 'frontend-ajax-login' %}">
+            <div class="login-errors hidden"></div>
             {% csrf_token %}
           <input type="text" class="form-control" id="user" name="username" placeholder="USERNAME">
-          <input type="email" class="form-control" id="password" name="password" placeholder="PASSWORD">
+          <input type="password" class="form-control" id="password" name="password" placeholder="PASSWORD">
           <button class="submit-btn submit-login" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."> {% trans 'Login' %}</button>
         </form>
         <div id="result-message" role="alert"></div>

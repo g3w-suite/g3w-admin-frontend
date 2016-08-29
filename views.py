@@ -3,15 +3,23 @@ from django.views.generic.edit import BaseFormView
 from django.http import JsonResponse
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login as auth_login
 from guardian.shortcuts import get_objects_for_user
 from core.models import Group
 from core.mixins.views import AjaxableFormResponseMixin
 
 
 
-class LoginAjaxView(AjaxableFormResponseMixin, BaseFormView):
+class LoginAjaxView(BaseFormView):
 
     form_class = AuthenticationForm
+
+    def form_invalid(self, form):
+        return JsonResponse({'status': 'error', 'errors_form': form.errors})
+
+    def form_valid(self, form):
+        auth_login(self.request, form.get_user())
+        return JsonResponse({'status': 'ok', 'message': 'Login'})
 
 
 '''
