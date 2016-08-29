@@ -73,7 +73,7 @@
         </span>
         </a>
         
-        <a href="#" class="colour_link products" data-current="false">
+        <a href="#" class="colour_link products" Accidentcurrent="false">
         <span data-colour="#7c378a" data-name="login" class="colour">
         <span>
         <i class="menu-img icon-lock"></i>
@@ -136,12 +136,12 @@
     <div class="normal-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. </div>
     <div class="container padd-30"> 
      <!-- Service Row -->
-      <div class="">
+      <div class="row">
 
         {% for group in groups %}
         <!-- Service -->
         <div class="col-md-4">
-          <div class="box">
+          <div class="box group-box"  data-name="maps-{{ group.slug }}">
             <div class="icon"> <img class="img-circle" src="{{ MEDIA_URL }}{{ group.header_logo_img }}" alt=""> </div>
             <h5>{{ group.title }}</h5>
             <hr>
@@ -149,28 +149,16 @@
           </div>
         </div>
       {% endfor %}
-        
-
-        
 
       </div>
     </div>
-    
-    <section class="design-count">
-                <div class="container">
-                    <div>
-                        <!-- counter item -->
-                        <div class="col-md-3 col-sm-3">
-                                <span class="counter-number">4527</span>
-                                <span class="text-small">Graphic Design</span>
-                            </div>
-                       
 
-                     
-                        <!-- end counter item -->
-                    </div>
-                </div>
-            </section>
+    <div class="group-projects">
+        <div class="container">
+        </div>
+    </div>
+
+
   </div>
 </div>
 
@@ -182,10 +170,9 @@
 <h1 class="tk-source-sans-pro">{% trans 'Group maps' %}</h1>
 <div class="paragraphs tk-source-sans-pro">
 <div class="normal-text">{{ group.description }}</div>
-</div>
 {% with group.getProjects as projects %}
 {% for project in projects %}
-    <div class="paragraphs no-columns tk-source-sans-pro">
+    <div class="project-data">
         <div class="block row">
           <div class="col-md-12">
             {{ project.title }}
@@ -194,6 +181,7 @@
     </div>
 {% endfor %}
 {% endwith %}
+</div>
 </div>
 {% endfor %}
 

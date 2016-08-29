@@ -40,13 +40,13 @@ $(document).ready(function($) {
 	});
 	
 	setInterval(function() { $(window).trigger('resize') }, 1000);
-	
-	$('.colour_link').click(function(event) {
+
+	var change_page = function(event) {
 		event.preventDefault();
-		
+
 		$('.colour_link').attr('data-current', 'false');
 		$(this).attr('data-current', 'true');
-		
+
 		var this_name = $(this).children().first().attr('data-name');
 		$('.content-box > h1').html($('.' + this_name + ' > h1').html());
 		$('.content-box > .page_name').html($('.' + this_name + ' > .page_name').html());
@@ -54,7 +54,7 @@ $(document).ready(function($) {
 		$('.content-box .paragraphs.second-block').first().html($('.' + this_name + ' .paragraphs.second-block').first().html());
 		$('.content-box .quick-links').first().html($('.' + this_name + ' .quick-links').first().html());
 		$('.content-panel').css({minHeight: $('.content-box').outerHeight(), overflow: 'auto'});
-		
+
 		if ($('.' + this_name + ' .paragraphs').is('.no-columns'))
 		{
 			$('.content-box .paragraphs').addClass('no-columns');
@@ -63,9 +63,9 @@ $(document).ready(function($) {
 		{
 			$('.content-box .paragraphs').removeClass('no-columns');
 		}
-		
+
 		$('.content-box').attr('data-page', this_name);
-		
+
 		if ($('.colours').is('.moved') == false)
 		{
 			$('.colours').addClass('moving').delay(500).addClass('moved', 500) //.removeClass('moving');
@@ -80,13 +80,22 @@ $(document).ready(function($) {
 		{
 			$('.content-panel, .content-box, body').stop().find('span').attr('data-colour'), 500;
 		}
-		
+
 		if (History.enabled)
 		{
 			window.manualStateChange = false;
 			History.pushState({page:this_name}, $(this).find('span span').text() + ' | ' + 'Coloured Lines', $(this).attr('href'));
 		}
-	});
+
+		$('.content-box .group-box').on('click', function(event){
+			var this_name = $(this).attr('data-name');
+			var paragraph = $('<div class="col-md-12"></div>').html($('.' + this_name + ' .paragraphs').first().html());
+			$('.group-projects > .container').html(paragraph.html());
+		});
+	};
+	
+	$('.colour_link').click(change_page);
+
 		
 	$('body').on('click', '.quick-links a', function(event) {
 		event.preventDefault();
