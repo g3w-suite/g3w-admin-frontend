@@ -92,6 +92,15 @@ $(document).ready(function($) {
 			var paragraph = $('<div class="col-md-12"></div>').html($('.' + this_name + ' .paragraphs').first().html());
 			$('.group-projects > .container').html(paragraph.html());
 		});
+
+		// for login
+		$('.submit-login').on('click', function(event){
+			event.preventDefault();
+
+			var form = $(this).parents('form');
+			$.post(form.attr('action'), form.serialize());
+
+		});
 	};
 	
 	$('.colour_link').click(change_page);
@@ -201,4 +210,6 @@ $(document).ready(function($) {
 			$('.colours.stuck').removeClass('stuck');
 		}
 	});
+	
+
 });

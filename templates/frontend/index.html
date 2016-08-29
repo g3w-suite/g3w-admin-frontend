@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load guardian_tags %}
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="en" >
@@ -148,6 +149,32 @@
             <!--<p> {{ group.description|safe }}</p>-->
           </div>
         </div>
+
+
+        <!-- Maps -->
+
+        <div class="maps-{{ group.slug }} hidden">
+        <div class="paragraphs tk-source-sans-pro">
+        <div class="normal-text">{{ group.description }}</div>
+        {% with group.getProjects as projects %}
+        {% for project in projects %}
+        {% get_obj_perms user for project as "project_perms" %}
+        {% get_obj_perms anonimoususer for project as "project_perms_anonymoususer" %}
+        {% if "view_project" in project_perms or "view_project" in project_perms_anonymoususer %}
+                <div class="project-data">
+                <div class="block row">
+                  <div class="col-md-12">
+                    <h3>{{ project.title }}</h3>
+                    <p class="text-muted">{{ project.description|safe}}</p>
+                    <a class="" href="{% url 'group-project-map' group.slug project.get_type project.pk %}" target="_blank"><span class="glyphicon glyphicon-globe"></span> {% trans 'Show map' %}</a>
+                  </div>
+            </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        {% endwith %}
+        </div>
+        </div>
       {% endfor %}
 
       </div>
@@ -163,27 +190,7 @@
 </div>
 
 
-<!-- Maps -->
-{% for group in groups %}
-<div class="maps-{{ group.slug }} hidden">
-<div class="page_name tk-museo-sans">{{ group.title }}</div>
-<h1 class="tk-source-sans-pro">{% trans 'Group maps' %}</h1>
-<div class="paragraphs tk-source-sans-pro">
-<div class="normal-text">{{ group.description }}</div>
-{% with group.getProjects as projects %}
-{% for project in projects %}
-    <div class="project-data">
-        <div class="block row">
-          <div class="col-md-12">
-            {{ project.title }}
-          </div>
-    </div>
-    </div>
-{% endfor %}
-{% endwith %}
-</div>
-</div>
-{% endfor %}
+
 
 
 <!-- work -->
@@ -196,10 +203,11 @@
     <div class="paragraphs no-columns tk-source-sans-pro">
     <div class="block row">
       <div class="col-md-6">
-        <form class="contact-form" >
-          <input type="text" class="form-control" id="fname" name="fname" placeholder="USERNAME">
-          <input type="email" class="form-control" id="email" name="email" placeholder="PASSWORD">
-          <button class="submit-btn" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."> {% trans 'Login' %}</button>
+        <form class="contact-form" action="{% url 'frontend-ajax-login' %}">
+            {% csrf_token %}
+          <input type="text" class="form-control" id="user" name="username" placeholder="USERNAME">
+          <input type="email" class="form-control" id="password" name="password" placeholder="PASSWORD">
+          <button class="submit-btn submit-login" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."> {% trans 'Login' %}</button>
         </form>
         <div id="result-message" role="alert"></div>
       </div>

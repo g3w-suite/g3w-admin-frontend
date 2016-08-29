@@ -1,7 +1,36 @@
 from django.views.generic import TemplateView
+from django.views.generic.edit import BaseFormView
+from django.http import JsonResponse
 from django.contrib.auth.models import AnonymousUser
+from django.contrib.auth.forms import AuthenticationForm
 from guardian.shortcuts import get_objects_for_user
 from core.models import Group
+from core.mixins.views import AjaxableFormResponseMixin
+
+
+
+class LoginAjaxView(AjaxableFormResponseMixin, BaseFormView):
+
+    form_class = AuthenticationForm
+
+
+'''
+def _login(request):
+    """
+    View to do ajax login.
+    """
+    if request.method == 'POST':
+        login_form = AuthenticationForm(request, request.POST)
+        response_data = {}
+        if login_form.is_valid():
+            response_data['result'] = 'Success!'
+            response_data['message'] = 'You"re logged in'
+        else:
+            response_data['result'] = 'failed'
+            response_data['message'] = 'You messed up'
+
+       return JsonResponse
+'''
 
 
 class FrontendView(TemplateView):
