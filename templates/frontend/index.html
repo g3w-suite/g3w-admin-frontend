@@ -78,8 +78,7 @@
         <span data-colour="#7c378a" data-name="login" class="colour">
         <span>
         <i class="menu-img icon-lock"></i>
-        {% trans 'Login' %}
- 
+        {% if user.is_authenticated %}{% trans 'Admin' %}{% else %}{% trans 'Login' %}{% endif %}
         </span>
         </span>
         </a>
@@ -95,8 +94,12 @@
   <div class="content-box">
     <div class="icon-home">
     <a href="#">Home</a>
-     
     </div>
+    {% if user.is_authenticated %}
+    <div class="icon-admin-home">
+    <a href="{% url 'home' %}">{% trans 'Adminstration' %}</a>
+    </div>
+    {% endif %}
     <div class="page_name">All Pages</div>
     <h1 class="tk-source-sans-pro"></h1>
     <div class="paragraphs"></div>
@@ -196,23 +199,39 @@
 
 <!-- work -->
 <div class="login hidden">
-<div class="page_name tk-museo-sans">{% trans 'Login' %}</div>
-<h1 class="tk-source-sans-pro">{% trans 'Login to  get backind administration system' %}</h1>
+<div class="page_name tk-museo-sans">{% if user.is_authenticated %}{% trans 'Admin' %}{% else %}{% trans 'Login' %}{% endif %}</div>
+<h1 class="tk-source-sans-pro">
+    {% if user.is_authenticated %}
+    {% trans 'Access to backeng administration stystem or logout' %}
+    {% else %}
+    {% trans 'Login to go backend administration system' %}
+    {% endif %}
+</h1>
 <div class="paragraphs tk-source-sans-pro">
 <div class="normal-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. </div>
 
     <div class="paragraphs no-columns tk-source-sans-pro">
     <div class="block row">
       <div class="col-md-6">
-
+      {% if user.is_authenticated %}
+      <div style="margin-top:10px">
+        <span class="filter">
+            <a class="btn btn-main go-admin" href="{% url 'home' %}">{% trans 'Backend' %}</a>
+        </span>
+        <span class="action">
+            <a class="btn btn-main btn-logout go-admin" href="{% url 'logout'%}">{% trans 'Logout' %}</a>
+        </span>
+      </div>
+      {% else %}
         <form class="contact-form" action="{% url 'frontend-ajax-login' %}">
             <div class="login-errors hidden"></div>
             {% csrf_token %}
-          <input type="text" class="form-control" id="user" name="username" placeholder="USERNAME">
-          <input type="password" class="form-control" id="password" name="password" placeholder="PASSWORD">
-          <button class="submit-btn submit-login" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."> {% trans 'Login' %}</button>
+            <input type="text" class="form-control" id="user" name="username" placeholder="USERNAME">
+            <input type="password" class="form-control" id="password" name="password" placeholder="PASSWORD">
+            <button class="submit-btn submit-login" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."> {% trans 'Login' %}</button>
         </form>
         <div id="result-message" role="alert"></div>
+      {% endif %}
       </div>
 
     </div>

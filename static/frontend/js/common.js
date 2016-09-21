@@ -72,6 +72,7 @@ $(document).ready(function($) {
 			$('#home_wrapper').stop().animate({'right': '100%'}, 1000, function() {
 				$('.content-box').addClass('moved');
 				$('.icon-home').fadeIn();
+				$('.icon-admin-home').fadeIn();
 			});
 			$('.content-panel, .content-box, body').stop().find('span').attr('data-colour'), 1000;
 			$('#home_wrapper').addClass('moved');
