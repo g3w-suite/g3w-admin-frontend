@@ -159,7 +159,7 @@
 
         <div class="maps-{{ group.slug }} hidden">
         <div class="paragraphs tk-source-sans-pro">
-        <div class="normal-text">{{ group.description }}</div>
+        <div class="normal-text">{{ group.description|safe }}</div>
         {% with group.getProjects as projects %}
         {% for project in projects %}
         {% get_obj_perms user for project as "project_perms" %}
