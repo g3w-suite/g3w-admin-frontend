@@ -681,6 +681,14 @@ html.ie7 .icon-home {
     margin-left: 20px;
 }
 
+.action .btn-showmap:after {
+    content: "\f0ac";
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: #7ac142;
+    margin-left: 20px;
+}
+
 .grid {
   width: 100%;
   padding: 0;

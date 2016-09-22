@@ -170,7 +170,9 @@
                   <div class="col-md-12">
                     <h3>{{ project.title }}</h3>
                     <p class="text-muted">{{ project.description|safe}}</p>
-                    <a class="" href="{% url 'group-project-map' group.slug project.get_type project.pk %}" target="_blank"><span class="glyphicon glyphicon-globe"></span> {% trans 'Show map' %}</a>
+                    <p class="action">
+                    <a class="btn btn-main btn-showmap go-admin" href="{% url 'group-project-map' group.slug project.get_type project.pk %}" target="_blank">{% trans 'Show map' %}</a>
+                    </p>
                   </div>
             </div>
             </div>
