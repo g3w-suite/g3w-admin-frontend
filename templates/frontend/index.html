@@ -16,6 +16,7 @@
 <link href='https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,300,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% static 'bower_components/cookieconsent/build/cookieconsent.min.css' %}" />
 </head>
 
 <body>
@@ -250,5 +251,7 @@
 <script type="text/javascript" src="{% static 'frontend/js/jquery-1.9.1.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'frontend/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'frontend/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'bower_components/cookieconsent/build/cookieconsent.min.js' %}"></script>
+{% include 'core/include/coockieconsent.html' %}
 </body>
 </html>
