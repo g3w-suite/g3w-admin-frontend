@@ -309,13 +309,21 @@ color:#fff
 	z-index: 100;
 }
 
-html.ie7 .icon-home {
+html.ie7 .icon-home, html.ie7 .icon-admin-home {
 	position: absolute;
 }
 
 .icon-home {padding:0px; right:0px; top:0px; text-align:center}
 .icon-home a, .icon-admin-home a {background:#000; padding:25px 25px; color:#fff!important; font-family: 'Montserrat', sans-serif; text-transform:uppercase; font-size:12px; font-weight:bold; letter-spacing:1px; display:block; position:fixed; right:0px; margin-top:-4px}
 .icon-home img {
+	border: 0;
+	width: 78px;
+
+}
+
+.icon-admin-home {padding:0px; right:100px; top:0px; text-align:center}
+.icon-admin-home a {background:#000; margin-right:100px; padding:25px 25px; color:#fff!important; font-family: 'Montserrat', sans-serif; text-transform:uppercase; font-size:12px; font-weight:bold; letter-spacing:1px; display:block; position:fixed; right:0px; margin-top:-4px}
+.icon-admin-home img {
 	border: 0;
 	width: 78px;
 
@@ -331,9 +339,10 @@ html.ie7 .icon-home {
 
 .icon-home .social-buttons a {float: none!important;margin-bottom: 15px!important; width:auto!important; border-radius: 1px!important; display:block!important; height:50px!important; line-height:50px!important}
 
-.icon-home:before {display:none}
+.icon-home:before, .icon-admin-home:before {display:none}
 
-.icon-home a:hover img {
+
+.icon-home a:hover img, .icon-admin-home a:hover img {
 	opacity: 1;
 }
 
@@ -904,6 +913,8 @@ address {background:#f8f8f8; padding:10px 30px}
 
 .padd-30 {padding-left:20px; padding-right:20px}
 
+.padd-40 {padding-left:30px; padding-right:30px}
+
 
 .content-box h4,
 .content-box[data-page="contact_us"] label {
@@ -963,7 +974,7 @@ address {background:#f8f8f8; padding:10px 30px}
 }
 .content-box .paragraphs.no-columns,
 .content-box .paragraphs article {
-	
+
 	
 }
 
@@ -1058,11 +1069,12 @@ article {
 .content-panel {min-width:auto}
 .content-box {color: #333; margin-left: 0px; padding: 120px 20px 90px 20px;}
 .colours.moved.stuck {display:none}
-.icon-home {width:100%; height:100px; padding:15px 25px;}
+.icon-home, .icon-admin-home {width:100%; height:100px; padding:15px 25px;}
 .icon-home .social-buttons {display:none}
 .form-control {margin-bottom:25px}
 .grid figure {width:100%; margin-bottom:20px}
 .btn-main {display:none}
+.btn-showmap{display: inline}
 .contact-form {margin-bottom:25px}
 .wp-caption img{width:100%}
 .colour span {width:auto}
@@ -1082,11 +1094,12 @@ article {
 .content-panel {min-width:auto}
 .content-box {color: #333; margin-left: 0px; padding: 120px 20px 90px 20px;}
 .colours.moved.stuck {display:none}
-.icon-home {width:100%; height:100px; padding:15px 25px;}
+.icon-home, .icon-admin-home {width:100%; height:100px; padding:15px 25px;}
 .icon-home .social-buttons {display:none}
 .form-control {margin-bottom:25px}
 .grid figure {width:100%; margin-bottom:20px}
 .btn-main {display:none}
+.btn-showmap{display: inline}
 .contact-form {margin-bottom:25px}
 .wp-caption img{width:100%}
 .colour span {width:auto}
@@ -1108,6 +1121,7 @@ article {
 .form-control {margin-bottom:25px}
 .grid figure {width:100%; margin-bottom:20px}
 .btn-main {display:none}
+.btn-showmap{display: inline}
 .contact-form {margin-bottom:25px}
 .wp-caption img{width:100%}
 .colour span {width:auto}
