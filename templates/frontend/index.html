@@ -37,12 +37,11 @@
  
         </div>
          -->
-        <div class="subtitle">Geosuite</div>
-        <h1 class="tk-source-sans-pro">G3W-SUITE</h1>
-        <div class="home-content"> <img src="{% static 'frontend/images/logo_gis3w_circolare.png' %}" alt="logo"><br>
+        <div class="subtitle">{{ generaldata.sub_title }}</div>
+        <h1 class="tk-source-sans-pro">{{ generaldata.title }}</h1>
+        <div class="home-content"> <img src="{{ MEDIA_URL }}{{ generaldata.suite_logo }}" alt="logo"><br>
           <br><br>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. <br>
-            Morbi ornare lectus quis justo gravida semper. </p>
+         <p>{{ generaldata.home_description|safe }}</p>
          <!--
           <form>
             <input type="search" name="s" placeholder="Search this site">
@@ -110,21 +109,26 @@
    <!-- about-->
     <div class="about_it hidden">
       <div class="page_name tk-museo-sans">{% trans 'About It' %}</div>
-      <h1 class="tk-source-sans-pro">{%  trans 'G3W-SUITE is a geo suite administration system' %}.</h1>
+      <h1 class="tk-source-sans-pro">{{ generaldata.about_title }}</h1>
 
       <div class="paragraphs tk-source-sans-pro">
-       <div class="normal-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante.</div>
+       <div class="normal-text">{{ generaldata.about_description|safe }}</div>
        <div class="info-block">
        <ul>
-       <li class="name"><strong>GIS3W S.a.s.</strong></li>
-       <li class="phone">+39 347 6597931</li>
-       <li class="email">info@gis3w.it</li>
-       <li class="address">V.le G. Verdi 51016, Montecatini Terme, Italy</li>
+       <li class="name"><strong>{{ generaldata.about_name }}</strong></li>
+       <li class="phone">{{ generaldata.about_tel }}</li>
+       <li class="email">{{ generaldata.about_email }}</li>
+       <li class="address">{{ generaldata.about_address }}</li>
         <li><div class="social-buttons">
-     <a class="facebook" href="#" target="_blank"></a>
-     <a class="twitter" href="#" target="_blank"></a>
-     <a class="google-plus" href="#" target="_blank"></a>
-
+    {% if generaldata.facebook_url %}
+     <a class="facebook" href="{{ generaldata.facebook_url }}<" target="_blank"></a>
+    {% endif %}
+    {% if generaldata.twitter_url %}
+     <a class="twitter" href="{{ generaldata.twitter_url }}" target="_blank"></a>
+    {% endif %}
+    {% if generaldata.googleplus_url %}
+     <a class="google-plus" href="{{ generaldata.googleplus_url }}" target="_blank"></a>
+    {% endif %}
 
      </div></li>
        </ul>
@@ -136,9 +140,9 @@
   <!-- What we do-->  
 <div class="groups hidden">
   <div class="page_name tk-museo-sans">{% trans 'Maps' %}</div>
-  <h1 class="tk-source-sans-pro">{% trans 'Group maps on db' %}</h1>
+  <h1 class="tk-source-sans-pro">{{ generaldata.groups_title }}</h1>
   <div class="paragraphs tk-source-sans-pro">
-    <div class="normal-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. </div>
+    <div class="normal-text"> {{ generaldata.groups_map_description|safe }} </div>
     <div class="container padd-30"> 
      <!-- Service Row -->
       <div class="row">
@@ -222,7 +226,7 @@
     {% endif %}
 </h1>
 <div class="paragraphs tk-source-sans-pro">
-<div class="normal-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. </div>
+<div class="normal-text">{{ generaldata.login_description|safe }}</div>
 
     <div class="paragraphs no-columns tk-source-sans-pro">
     <div class="block row">

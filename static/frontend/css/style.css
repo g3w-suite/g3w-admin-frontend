@@ -218,7 +218,8 @@ html.ie .content-box a:visited {
 .social-buttons a:hover { text-decoration:none}
 
 .social-buttons a.facebook {
-background:#000
+background: #000;
+color: transparent;
 }
 .social-buttons a.facebook:before {
 content: "\f09a";

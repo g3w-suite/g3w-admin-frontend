@@ -5,7 +5,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
 from guardian.shortcuts import get_objects_for_user
-from core.models import Group
+from core.models import Group, GeneralSuiteData
 from core.mixins.views import AjaxableFormResponseMixin
 
 
@@ -72,4 +72,7 @@ class FrontendView(TemplateView):
             groupObj['projects'] = group.project_set.all()
             cdata['groups'].append(groupObj)
         '''
+
+        # get data from generaldata
+        cdata['generaldata'] = GeneralSuiteData.objects.get()
         return cdata
