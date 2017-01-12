@@ -177,12 +177,23 @@
 {% get_obj_perms user for group as "group_perms" %}
 <div class="group-maps-{{ group.id }} hidden">
     <div class="page_name tk-museo-sans">{% trans 'Group maps' %} {{ group.title }}</div>
-    <h1 class="tk-source-sans-pro">{% trans 'Group maps' %} {{ group.title }}</h1>
+    <h1 class="tk-source-sans-pro">{% trans 'Group maps' %}
+    <div class="row">
+        <div class="col-lg-10 col-md-9 col-xs-8">
+            {{ group.title }}
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-4">
+            <img class="img-responsive img-rounded" src="{{ MEDIA_URL }}{{ group.header_logo_img }}" alt="">
+        </div>
+
+    </div>
+    </h1>
+
     <div class="normal-text"> {{ group.description|safe }} </div>
       <div class="row">
         <div class="col-md-12 col-sd-12 maps-{{ group.slug }}">
         <div class="paragraphs">
-            <div class="normal-text">{{ group.description|safe }}</div>
+            <div class="normal-text group-maps-description">{{ group.description|safe }}</div>
             {% with group.getProjects as projects %}
             {% for project in projects %}
             {% get_obj_perms user for project as "project_perms" %}
