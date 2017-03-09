@@ -542,7 +542,7 @@ html.ie7 .icon-home, html.ie7 .icon-admin-home {
 .home-block .home-content p {
 	font-size: 14px;
 	line-height: 21px;
-	color:#f2f2f2;
+	color:#000;
 	padding-right:150px
 }
 .home-block .home-content img {
@@ -579,7 +579,7 @@ html.ie7 .icon-home, html.ie7 .icon-admin-home {
 /* 6. About Us */
 .photo-img {margin-top:35px; line-height:0px}
 .photo-img img {width:100%}
-.info-block{ position:absolute; width:260px; color:#fff; border-radiua:3px; margin-left:35px; margin-top:80px; background:#000}
+.info-block{ position:absolute; width:460px; color:#fff; border-radiua:3px; margin-left:35px; margin-top:80px; background:#000}
 .info-block ul {overflow:hidden; text-align:left; padding:0px; margin:0px!important}
 .info-block ul li{ display:block; text-align:left; padding:0px; margin:0px!important; padding:20px 25px; border-bottom:1px rgba(255,255,255,0.4) solid; }
 .info-block ul li:last-child{ border-bottom:none} 
@@ -1069,7 +1069,7 @@ article {
 .home-block h1 { font-size: 50px; font-weight: 600; letter-spacing: 3px; margin-left: 0px;  margin-top:0px; position: relative; top:auto; }
 .home-block .home-content { position:relative}
 .home-block .home-content p {padding-right:15px; padding-left:15px}
-.home-block input[type="search"] {width: 80%; border: none; font-size: 13px; height: 30px; display:inline-block}
+.home-block input[type="search"] {width: 80%; border: none; font-size: 13px; height: 30px; display:inline-block; color: #000;}
 .home-block .home-content { margin-left:0px; margin-top:15px}
 .content-panel {min-width:auto}
 .content-box {color: #333; margin-left: 0px; padding: 120px 20px 90px 20px;}
