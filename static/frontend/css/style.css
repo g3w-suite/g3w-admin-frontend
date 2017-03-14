@@ -159,7 +159,7 @@ html.ie7 .content-panel {
 
 .content-box a:link,
 .content-box a:visited {
-	color:#000;
+	color:#fff;
 	text-decoration: none;
 
 }
@@ -168,7 +168,7 @@ html.ie .content-box a:visited {
 	color: #fff;
 }
 .content-box a:hover {
-	color: #333;
+	color: #fff;
 
 }
 .content-box p {
@@ -527,11 +527,11 @@ html.ie7 .icon-home, html.ie7 .icon-admin-home {
 	margin-left: 45px;
 	margin-top: -100px;
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	font-family:'Montserrat', sans-serif;
 
 }
-.subtitle {margin-left: 45px; font-family: 'Herr Von Muellerhoff', cursive; font-size:60px; color:#777; position: absolute;  top: 50%; margin-top:-155px; font-weight:bold; letter-spacing:5px}
+.subtitle {margin-left: 45px; font-family: 'Herr Von Muellerhoff', cursive; font-size:60px; color:#777; position: absolute;  top: 40%; margin-top:-155px; font-weight:bold; letter-spacing:5px}
 
 .home-block .home-content {
 	bottom: 0;
@@ -1166,7 +1166,7 @@ article {
 }
 
 .row-project {
-	background: #f8f8f8;
+	background: #d8d8d8;
 	margin-bottom:20px;
 	padding-top:20px;
 }
@@ -1174,3 +1174,9 @@ article {
 .content-box h3.row-project-title {
 	font-weight:bold;
 }
+
+.img-group-project-list {
+	margin-left:-15px;
+}
+
+

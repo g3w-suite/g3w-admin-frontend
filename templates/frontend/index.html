@@ -117,11 +117,11 @@
        <ul>
        <li class="name"><strong>{{ generaldata.about_name }}</strong></li>
        <li class="phone">{{ generaldata.about_tel }}</li>
-       <li class="email">{{ generaldata.about_email }}</li>
+           <li class="email"><a class="blank" href="mailto:{{ generaldata.about_email }}">{{ generaldata.about_email }}   </a></li>
        <li class="address">{{ generaldata.about_address }}</li>
         <li><div class="social-buttons">
     {% if generaldata.facebook_url %}
-     <a class="facebook" href="{{ generaldata.facebook_url }}<" target="_blank"></a>
+     <a class="facebook" href="{{ generaldata.facebook_url }}" target="_blank"></a>
     {% endif %}
     {% if generaldata.twitter_url %}
      <a class="twitter" href="{{ generaldata.twitter_url }}" target="_blank"></a>
@@ -183,7 +183,7 @@
         <div class="paragraphs">
             <div class="row normal-text group-maps-description">
                 <div class="col-md-3 col-lg-2 col-sm-4">
-                    <img class="img-responsive img-rounded" src="{{ MEDIA_URL }}{{ group.header_logo_img }}" alt="">
+                    <img class="img-responsive img-rounded img-group-project-list" src="{{ MEDIA_URL }}{{ group.header_logo_img }}" alt="">
                 </div>
                 <div class="col-md-9  col-lg-10 col-sm-8">
                     {{ group.description|safe }}
