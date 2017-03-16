@@ -196,11 +196,11 @@
             {% if "view_project" in project_perms or "view_project" in project_perms_anonymoususer %}
                 <div class="project-data padd-40">
                 <div class="block row row-project">
-                    <div class="col-md-3 col-lg-2 col-sm-4" style="text-align: center;">
+                    <div class="col-md-3 col-lg-3 col-sm-4" style="text-align: center;">
                         {% if project.thumbnail %}
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="icon"> <img class="img-circle" src="{{ MEDIA_URL }}{{project.thumbnail }}" alt=""> </div>
+                                <div class="icon"> <img class="img-thumbnail" src="{{ MEDIA_URL }}{{project.thumbnail }}" alt=""> </div>
                             </div>
                         </div>
                         {% endif %}
@@ -212,7 +212,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9  col-lg-10 col-sm-8">
+                    <div class="col-md-9  col-lg-9 col-sm-8">
                         <div class="row">
                             <div class="col-md-12">
                                 <h3 class="row-project-title">{{ project.title }}</h3>

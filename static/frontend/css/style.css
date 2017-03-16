@@ -159,16 +159,16 @@ html.ie7 .content-panel {
 
 .content-box a:link,
 .content-box a:visited {
-	color:#fff;
+	color:#e43737;
 	text-decoration: none;
 
 }
 html.ie .content-box a:link,
 html.ie .content-box a:visited {
-	color: #fff;
+	color: #e43737;
 }
 .content-box a:hover {
-	color: #fff;
+	color: #e43737;
 
 }
 .content-box p {
@@ -701,6 +701,8 @@ html.ie7 .icon-home, html.ie7 .icon-admin-home {
 
 .action .btn-showmap {
 	width: auto;
+	background: #696969;
+
 }
 
 .action-project {
@@ -997,6 +999,11 @@ address {background:#f8f8f8; padding:10px 30px}
 	margin-left:30px;
 	margin-top:10px
 }
+
+.content-box .paragraphs p.action-project {
+
+	margin-left: 0px;
+}
 .content-box[data-page="contact_us"] .paragraphs p {
 	font-size: 13px;
 	line-height: 1.4em;
@@ -1145,10 +1152,13 @@ article {
 .home-block h1 {font-size:80px}
 }
 
-.img-circle {
-	width: 100px;
+.img-circle,
+.img-thumbnail{
+	width: auto;
 	height: 100px;
 }
+
+
 
 .group-projects {
 	margin-top: 30px;
@@ -1166,9 +1176,10 @@ article {
 }
 
 .row-project {
-	background: #d8d8d8;
+	/*background: #d8d8d8;*/
 	margin-bottom:20px;
 	padding-top:20px;
+	border-top: 1px solid #d8d8d8;
 }
 
 .content-box h3.row-project-title {
