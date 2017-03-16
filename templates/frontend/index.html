@@ -261,7 +261,7 @@
             <a class="btn btn-main go-admin" href="{% url 'home' %}">{% trans 'Backend' %}</a>
         </span>
         <span class="action">
-            <a class="btn btn-main btn-logout go-admin" href="{% url 'logout'%}">{% trans 'Logout' %}</a>
+            <a class="btn btn-main btn-logout go-admin" href="{% url 'logout'%}?next=/">{% trans 'Logout' %}</a>
         </span>
       </div>
       {% else %}
