@@ -7,7 +7,8 @@ from django.contrib.auth import login as auth_login
 from guardian.shortcuts import get_objects_for_user
 from core.models import Group, GeneralSuiteData
 from core.mixins.views import AjaxableFormResponseMixin
-
+from .configs import home_images
+import random
 
 
 class LoginAjaxView(BaseFormView):
@@ -52,7 +53,6 @@ class FrontendView(TemplateView):
     def get_context_data(self, **kwargs):
         cdata = super(FrontendView, self).get_context_data(**kwargs)
 
-
         # add anonimous user to the context data
         # we get groups with base on permissions
         cdata['anonimoususer'] = AnonymousUser()
@@ -75,4 +75,8 @@ class FrontendView(TemplateView):
 
         # get data from generaldata
         cdata['generaldata'] = GeneralSuiteData.objects.get()
+
+        # get home images data
+        cdata['home_image'] = random.choice(home_images)
+
         return cdata

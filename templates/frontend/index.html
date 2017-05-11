@@ -17,6 +17,25 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,300,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="{% static 'bower_components/cookieconsent/build/cookieconsent.min.css' %}" />
+<style>
+    .home-block {
+        color:{{ home_image.main_color }};
+        background: #fff url(../../static/frontend/images/home/{{ home_image.image }}) no-repeat top left;
+    }
+
+    .home-block h1 {
+        color: {{ home_image.main_title_color }};
+    }
+
+    .home-block .home-content p {
+        color: {{ home_image.main_color }};
+    }
+
+    .subtitle {
+        color: {{ home_image.subtitle_color }};
+    }
+
+</style>
 </head>
 
 <body>
@@ -41,7 +60,7 @@
         <h1 class="tk-source-sans-pro">{{ generaldata.title }}</h1>
         <div class="home-content"> <img src="{{ MEDIA_URL }}{{ generaldata.suite_logo }}" alt="logo"><br>
           <br><br>
-         <p>{{ generaldata.home_description|safe }}</p>
+         <p>{{ generaldata.home_description|safe }} <br><br> Photo by <a href="{{ home_image.author_url }}">{{ home_image.author }}</a></p>
          <!--
           <form>
             <input type="search" name="s" placeholder="Search this site">
