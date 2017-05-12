@@ -40,4 +40,20 @@ home_images = [
         'author_url': 'https://unsplash.com/@paulozono',
         'subtitle_color': '#fff'
     },
+    {
+        'image': 'nathan-anderson.jpg',
+        'main_color': '#fff',
+        'main_title_color': '#fff',
+        'author': 'PNathan Anderson',
+        'author_url': 'https://unsplash.com/@nathananderson',
+        'subtitle_color': '#fff'
+    },
+{
+        'image': 'nathan-anderson2.jpg',
+        'main_color': '#fff',
+        'main_title_color': '#fff',
+        'author': 'PNathan Anderson',
+        'author_url': 'https://unsplash.com/@nathananderson',
+        'subtitle_color': '#fff'
+    },
 ]
