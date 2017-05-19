@@ -209,7 +209,7 @@
             {% with group.getProjects as projects %}
             {% with group.get_panoramic_project as pano_project %}
             {% for app, project in projects %}
-            {% if project != pano_project %}
+            {% if project != pano_project or projects|length == 1 %}
             {% get_obj_perms user for project as "project_perms" %}
             {% get_obj_perms anonimoususer for project as "project_perms_anonymoususer" %}
             {% if "view_project" in project_perms or "view_project" in project_perms_anonymoususer %}
