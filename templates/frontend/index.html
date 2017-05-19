@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load guardian_tags %}
+{% load g3wadmin_tags %}
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="en" >
@@ -206,7 +207,9 @@
                 </div>
             </div>
             {% with group.getProjects as projects %}
-            {% for project in projects %}
+            {% with group.get_panoramic_project as pano_project %}
+            {% for app, project in projects %}
+            {% if project != pano_project %}
             {% get_obj_perms user for project as "project_perms" %}
             {% get_obj_perms anonimoususer for project as "project_perms_anonymoususer" %}
             {% if "view_project" in project_perms or "view_project" in project_perms_anonymoususer %}
@@ -243,7 +246,9 @@
                 </div>
                 </div>
             {% endif %}
+            {% endif %}
             {% endfor %}
+            {% endwith %}
             {% endwith %}
         </div>
         </div>
