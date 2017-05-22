@@ -59,7 +59,10 @@
          -->
         <div class="subtitle">{{ generaldata.sub_title }}</div>
         <h1 class="tk-source-sans-pro">{{ generaldata.title }}</h1>
-        <div class="home-content"> <img src="{{ MEDIA_URL }}{{ generaldata.suite_logo }}" alt="logo"><br>
+        <div class="home-content">
+            {% if generaldata.suite_logo %}
+            <img src="{{ MEDIA_URL }}{{ generaldata.suite_logo }}" alt="logo"><br>
+            {% endif %}
           <br><br>
          <p>{{ generaldata.home_description|safe }} <br><br> Photo by <a href="{{ home_image.author_url }}">{{ home_image.author }}</a></p>
          <!--
