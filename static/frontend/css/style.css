@@ -1196,4 +1196,30 @@ article {
 	margin-left:30px;
 }
 
+.editing-project-button {
+	position:absolute;
+	top:6px;
+	right: 12px;
+
+
+}
+
+.editing-project-button > div {
+	display: block;
+	width: 24px;
+	height: 24px;
+
+}
+
+.editing-project-button > div > a > span.icon-pencil {
+	font-size: 24px;
+	padding: 6px;
+	background-color: white;
+	opacity: .5;
+}
+
+.editing-project-button > div > a > span.icon-pencil:hover {
+	opacity: .9;
+}
+
 
