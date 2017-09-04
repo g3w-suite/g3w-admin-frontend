@@ -1198,27 +1198,39 @@ article {
 
 .editing-project-button {
 	position:absolute;
-	top:6px;
-	right: 12px;
-
-
+	top: 10px;
+	right: 16px;
 }
 
-.editing-project-button > div {
+.editing-group-button {
+	position:absolute;
+	top: 39px;
+	right: 31px;
+}
+
+.editing-project-button > div,
+.editing-group-button > div {
 	display: block;
-	width: 24px;
-	height: 24px;
-
+	width: 18px;
+	height: 18px;
 }
 
-.editing-project-button > div > a > span.icon-pencil {
-	font-size: 24px;
+.editing-project-button > div > a:link,
+.editing-group-button > div > a:link {
+	color: green;
+}
+
+.editing-project-button > div > a > span.icon-pencil,
+.editing-group-button > div > a > span.icon-pencil{
+	font-size: 18px;
 	padding: 6px;
-	background-color: white;
+	background-color: black;
 	opacity: .5;
+	border-radius: 18px;
 }
 
-.editing-project-button > div > a > span.icon-pencil:hover {
+.editing-project-button > div > a > span.icon-pencil:hover,
+.editing-group-button > div > a > span.icon-pencil:hover {
 	opacity: .9;
 }
 

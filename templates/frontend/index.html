@@ -181,6 +181,15 @@
             <hr>
             <!--<p> {{ group.description|safe }}</p>-->
           </div>
+          {% if "change_group" in group_perms %}
+            <div class="editing-group-button">
+                <div>
+                    <a href="{% url 'group-update' group.slug %}" target="_blank">
+                    <span class="icon-pencil"></span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
         </div>
       {% endfor %}
 
