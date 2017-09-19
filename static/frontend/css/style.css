@@ -262,6 +262,50 @@ font-size:14px;
 color:#fff
 }
 
+.social-buttons a.youtube {
+	background:#000
+}
+
+.social-buttons a.youtube:before {
+content: "\f167";
+font-family: FontAwesome;
+font-size:14px;
+color:#fff
+}
+
+.social-buttons a.instagram {
+	background:#000
+}
+
+.social-buttons a.instagram:before {
+content: "\f16d";
+font-family: FontAwesome;
+font-size:14px;
+color:#fff
+}
+
+.social-buttons a.flickr {
+	background:#000
+}
+
+.social-buttons a.flickr:before {
+content: "\f16e";
+font-family: FontAwesome;
+font-size:14px;
+color:#fff
+}
+
+.social-buttons a.tripadvisor {
+	background:#000
+}
+
+.social-buttons a.tripadvisor:before {
+content: "\f262";
+font-family: FontAwesome;
+font-size:14px;
+color:#fff
+}
+
 .social-buttons a.rss {
 	background:#000
 }
