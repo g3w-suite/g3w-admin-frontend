@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.views.generic import TemplateView
 from django.views.generic.edit import BaseFormView
 from django.http import JsonResponse
@@ -7,9 +8,15 @@ from django.contrib.auth import login as auth_login
 from guardian.shortcuts import get_objects_for_user
 from core.models import Group, GeneralSuiteData
 from core.mixins.views import AjaxableFormResponseMixin
-from .configs import home_images
+from .configs import home_images_default
 import random
+import os
+import json
+import logging
 
+logger = logging.getLogger('django.request')
+
+VALID_IMG_EXT = ('jpg', 'jpeg', 'png')
 
 class LoginAjaxView(BaseFormView):
 
@@ -23,25 +30,6 @@ class LoginAjaxView(BaseFormView):
         return JsonResponse({'status': 'ok', 'message': 'Login'})
 
 
-'''
-def _login(request):
-    """
-    View to do ajax login.
-    """
-    if request.method == 'POST':
-        login_form = AuthenticationForm(request, request.POST)
-        response_data = {}
-        if login_form.is_valid():
-            response_data['result'] = 'Success!'
-            response_data['message'] = 'You"re logged in'
-        else:
-            response_data['result'] = 'failed'
-            response_data['message'] = 'You messed up'
-
-       return JsonResponse
-'''
-
-
 class FrontendView(TemplateView):
 
     template_name = 'frontend/index.html'
@@ -49,6 +37,40 @@ class FrontendView(TemplateView):
     def get(self, request, *args, **kwargs):
         self.request = request
         return TemplateView.get(self, request, *args, **kwargs)
+
+    def get_home_images(self):
+
+        if hasattr(settings, 'FRONTEND_IMAGES_DIR') and settings.FRONTEND_IMAGES_DIR:
+
+            # get every files into FRONTEND_IMAGES_DIR
+            files = os.listdir(settings.FRONTEND_IMAGES_DIR)
+
+            if 'images.json' in files:
+                try:
+                    with open(settings.FRONTEND_IMAGES_DIR + 'images.json') as conf_file:
+                        home_images = json.loads(conf_file.read())
+                except Exception as e:
+                    logger.error(e.message)
+                    home_images = home_images_default
+            else:
+                home_images = list()
+                for file in files:
+                    ext = os.path.splitext(file)[1][1:]
+                    if ext.lower() in VALID_IMG_EXT:
+                        home_images.append(
+                            {
+                                'image': file,
+                                'main_color': '#fff',
+                                'main_title_color': '#fff',
+                                'author': None,
+                                'author_url': None,
+                                'subtitle_color': '#fff'
+                            },
+                        )
+
+            return home_images
+        else:
+            return home_images_default
 
     def get_context_data(self, **kwargs):
         cdata = super(FrontendView, self).get_context_data(**kwargs)
@@ -77,6 +99,7 @@ class FrontendView(TemplateView):
         cdata['generaldata'] = GeneralSuiteData.objects.get()
 
         # get home images data
+        home_images = self.get_home_images()
         cdata['home_image'] = random.choice(home_images)
 
         return cdata

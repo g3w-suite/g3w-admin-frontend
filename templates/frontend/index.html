@@ -21,7 +21,11 @@
 <style>
     .home-block {
         color:{{ home_image.main_color }};
+        {% if SETTINGS.FRONTEND_IMAGES_URL %}
+        background: #fff url('{{ SETTINGS.FRONTEND_IMAGES_URL }}{{ home_image.image }}') no-repeat top left;
+        {% else %}
         background: #fff url(../../static/frontend/images/home/{{ home_image.image }}) no-repeat top left;
+        {% endif %}
     }
 
     .home-block h1 {
@@ -64,7 +68,19 @@
             <img src="{{ MEDIA_URL }}{{ generaldata.suite_logo }}" alt="logo"><br>
             {% endif %}
           <br><br>
-         <p>{{ generaldata.home_description|safe }} <br><br> Photo by <a href="{{ home_image.author_url }}">{{ home_image.author }}</a></p>
+         <p>{{ generaldata.home_description|safe }}
+             {% if home_image.author %}
+             <br><br>
+             Photo by
+             {% if home_image.author_url %}
+             <a href="{{ home_image.author_url }}">
+             {% endif %}
+                 {{ home_image.author }}
+             {% if home_image.author_url %}
+             </a>
+             {% endif %}
+             {% endif %}
+         </p>
          <!--
           <form>
             <input type="search" name="s" placeholder="Search this site">

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-home_images = [
+home_images_default = [
     {
         'image': 'alex-siale.jpg',
         'main_color': '#fff',
@@ -48,7 +48,7 @@ home_images = [
         'author_url': 'https://unsplash.com/@nathananderson',
         'subtitle_color': '#fff'
     },
-{
+    {
         'image': 'nathan-anderson2.jpg',
         'main_color': '#fff',
         'main_title_color': '#fff',

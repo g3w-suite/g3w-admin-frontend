@@ -41,4 +41,6 @@ To activate 'frontend' module and to set the forntend in to local_settings.py:
 
     FRONTEND = True
     FRONTEND_APP = 'frontend'
+    FRONTEND_IMAGES_DIR = None | <directory to put images to use>
+    FRONTEND_IMAGES_URL = NOne | <ulr to get images to use>
 
