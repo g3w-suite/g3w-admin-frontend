@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-home_images = [
+home_images_default = [
     {
         'image': 'alex-siale.jpg',
         'main_color': '#fff',

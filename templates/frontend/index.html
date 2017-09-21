@@ -21,7 +21,11 @@
 <style>
     .home-block {
         color:{{ home_image.main_color }};
+        {% if SETTINGS.FRONTEND_IMAGES_URL %}
+        background: #fff url('{{ SETTINGS.FRONTEND_IMAGES_URL }}{{ home_image.image }}') no-repeat top left;
+        {% else %}
         background: #fff url(../../static/frontend/images/home/{{ home_image.image }}) no-repeat top left;
+        {% endif %}
     }
 
     .home-block h1 {
@@ -46,7 +50,7 @@
     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 home">
       <div class="home-block">
         <!--
-        <div class="social-buttons"> 
+        <div class="social-buttons">
         <a class="facebook" href="#" target="_blank"></a>
         <a class="twitter" href="#" target="_blank"></a>
         <a class="google-plus" href="#" target="_blank"></a>
@@ -54,7 +58,7 @@
         <a class="pintrest" href="#" target="_blank"></a>
         <a class="linkedin" href="#" target="_blank"></a>
 
- 
+
         </div>
          -->
         <div class="subtitle">{{ generaldata.sub_title }}</div>
@@ -64,7 +68,19 @@
             <img src="{{ MEDIA_URL }}{{ generaldata.suite_logo }}" alt="logo"><br>
             {% endif %}
           <br><br>
-         <p>{{ generaldata.home_description|safe }} <br><br> Photo by <a href="{{ home_image.author_url }}">{{ home_image.author }}</a></p>
+         <p>{{ generaldata.home_description|safe }}
+             {% if home_image.author %}
+             <br><br>
+             Photo by
+             {% if home_image.author_url %}
+             <a href="{{ home_image.author_url }}">
+             {% endif %}
+                 {{ home_image.author }}
+             {% if home_image.author_url %}
+             </a>
+             {% endif %}
+             {% endif %}
+         </p>
          <!--
           <form>
             <input type="search" name="s" placeholder="Search this site">
@@ -76,17 +92,17 @@
 
     <!-- Menu Block-->
     <div class="col-lg-5 ol-md-5 col-sm-12 col-xs-12">
-      <div class="colours tk-museo-sans stuck "> 
+      <div class="colours tk-museo-sans stuck ">
       <a href="#" class="colour_link who_we_are" data-current="false">
       <span data-colour="#f2b701" data-name="about_it" class="colour" >
       <span>
       <i class="menu-img icon-globe"></i>
        {% trans 'About It' %}
-   
+
        </span>
        </span>
-        </a> 
-       
+        </a>
+
        <a href="#" class="colour_link guestbook" data-current="false">
        <span data-colour="#dc0030" data-name="groups" class="colour" >
        <span>
@@ -96,7 +112,7 @@
         </span>
         </span>
         </a>
-        
+
         <a href="#" class="colour_link products" Accidentcurrent="false">
         <span data-colour="#7c378a" data-name="login" class="colour">
         <span>
@@ -152,6 +168,18 @@
     {% if generaldata.googleplus_url %}
      <a class="google-plus" href="{{ generaldata.googleplus_url }}" target="_blank"></a>
     {% endif %}
+    {% if generaldata.youtube_url %}
+     <a class="youtube" href="{{ generaldata.youtube_url }}" target="_blank"></a>
+    {% endif %}
+    {% if generaldata.instagram_url %}
+     <a class="instagram" href="{{ generaldata.instagram_url }}" target="_blank"></a>
+    {% endif %}
+    {% if generaldata.flickr_url %}
+     <a class="flickr" href="{{ generaldata.flickr_url }}" target="_blank"></a>
+    {% endif %}
+    {% if generaldata.tripadvisor_url %}
+     <a class="tripadvisor" href="{{ generaldata.tripadvisor_url }}" target="_blank"></a>
+    {% endif %}
 
      </div></li>
        </ul>
@@ -159,14 +187,14 @@
         <div class="photo-img"><img src="{% static 'frontend/images/photo-img1.jpg' %}" alt="Sarah Smith"  style="alignment-baseline:"/></div>
       </div>
     </div>
-  
-  <!-- What we do-->  
+
+  <!-- What we do-->
 <div class="groups hidden">
   <div class="page_name tk-museo-sans">{% trans 'Maps' %}</div>
   <h1 class="tk-source-sans-pro">{{ generaldata.groups_title }}</h1>
   <div class="paragraphs tk-source-sans-pro">
     <div class="normal-text"> {{ generaldata.groups_map_description|safe }} </div>
-    <div class="container padd-30"> 
+    <div class="container padd-30">
      <!-- Service Row -->
       <div class="row">
 
@@ -181,6 +209,15 @@
             <hr>
             <!--<p> {{ group.description|safe }}</p>-->
           </div>
+          {% if "change_group" in group_perms %}
+            <div class="editing-group-button">
+                <div>
+                    <a href="{% url 'group-update' group.slug %}" target="_blank">
+                    <span class="icon-pencil"></span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
         </div>
       {% endfor %}
 
@@ -219,7 +256,6 @@
                 <div class="project-data padd-40">
                 <div class="block row row-project">
                     <div class="col-md-3 col-lg-3 col-sm-4" style="text-align: center; background: #8aa4af url({{ MEDIA_URL }}{{project.thumbnail }})">
-
                         <div class="row">
                             <div class="col-md-12" style="min-height: 100px;">
                                 <!--<div class="icon"> <img class="img-thumbnail" src="{{ MEDIA_URL }}{{project.thumbnail }}" alt=""> </div>-->
@@ -233,6 +269,17 @@
                                 </p>
                             </div>
                         </div>
+                        {% if "change_project" in project_perms %}
+                        <div class="editing-project-button">
+                            <div>
+                                {% with project.get_type|add:'-project-update' as project_update_link %}
+                                <a href="{% url project_update_link group.slug project.slug %}" target="_blank">
+                                <span class="icon-pencil"></span>
+                                </a>
+                                {% endwith %}
+                            </div>
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="col-md-9  col-lg-9 col-sm-8">
                         <div class="row">
@@ -268,7 +315,7 @@
 <div class="page_name tk-museo-sans">{% if user.is_authenticated %}{% trans 'Admin' %}{% else %}{% trans 'Login' %}{% endif %}</div>
 <h1 class="tk-source-sans-pro">
     {% if user.is_authenticated %}
-    {% trans 'Access to backeng administration stystem or logout' %}
+    {% trans 'Access to backend administration stystem or logout' %}
     {% else %}
     {% trans 'Login to go backend administration system' %}
     {% endif %}
@@ -280,7 +327,7 @@
     <div class="block row">
       <div class="col-md-6">
       {% if user.is_authenticated %}
-      <div style="margin-top:10px">
+      <div class="login-out-button">
         <span class="filter">
             <a class="btn btn-main go-admin" href="{% url 'home' %}">{% trans 'Backend' %}</a>
         </span>
@@ -308,8 +355,8 @@
 
 
 
-<!-- #main .wrapper --> 
-<!-- #page --> 
+<!-- #main .wrapper -->
+<!-- #page -->
 
 <script type="text/javascript" src="{% static 'frontend/js/jquery-1.9.1.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'frontend/js/bootstrap.min.js' %}"></script>
