@@ -51,7 +51,6 @@ class FrontendView(TemplateView):
                         home_images = json.loads(conf_file.read())
                 except Exception as e:
                     logger.error(e.message)
-                    logger.error(conf_file.read())
                     home_images = home_images_default
             else:
                 home_images = list()
