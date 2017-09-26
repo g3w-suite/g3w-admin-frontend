@@ -47,13 +47,16 @@ class FrontendView(TemplateView):
 
             if 'images.json' in files:
                 try:
-                    with open(settings.FRONTEND_IMAGES_DIR + 'images.json') as conf_file:
+                    with open(settings.FRONTEND_IMAGES_DIR + '/images.json') as conf_file:
+                        default = False
                         home_images = json.loads(conf_file.read())
                 except Exception as e:
                     logger.error(e.message)
                     home_images = home_images_default
+                    default = True
             else:
                 home_images = list()
+                default = False
                 for file in files:
                     ext = os.path.splitext(file)[1][1:]
                     if ext.lower() in VALID_IMG_EXT:
@@ -68,9 +71,9 @@ class FrontendView(TemplateView):
                             },
                         )
 
-            return home_images
+            return (default, home_images)
         else:
-            return home_images_default
+            return (True, home_images_default)
 
     def get_context_data(self, **kwargs):
         cdata = super(FrontendView, self).get_context_data(**kwargs)
@@ -100,6 +103,12 @@ class FrontendView(TemplateView):
 
         # get home images data
         home_images = self.get_home_images()
-        cdata['home_image'] = random.choice(home_images)
+
+        if home_images[0]:
+            cdata['home_image_path'] = '../../static/frontend/images/home/'
+        else:
+            cdata['home_image_path'] = settings.FRONTEND_IMAGES_URL
+
+        cdata['home_image'] = random.choice(home_images[1])
 
         return cdata

@@ -21,11 +21,7 @@
 <style>
     .home-block {
         color:{{ home_image.main_color }};
-        {% if SETTINGS.FRONTEND_IMAGES_URL %}
-        background: #fff url('{{ SETTINGS.FRONTEND_IMAGES_URL }}{{ home_image.image }}') no-repeat top left;
-        {% else %}
-        background: #fff url(../../static/frontend/images/home/{{ home_image.image }}) no-repeat top left;
-        {% endif %}
+        background: #fff url('{{ home_image_path }}{{ home_image.image }}') no-repeat top left;
     }
 
     .home-block h1 {
