@@ -1,0 +1,23 @@
+{% load guardian_tags %}
+<div class="col-md-4">
+  <div class="box group-box"  data-name="maps-{{ group.slug }}">
+    <span data-name="{% if children.children|length > 0 %}macro{% endif %}group-maps-{{ group.id }}"></span>
+    <div class="icon" style="height:100px; background-image:url('{{ MEDIA_URL }}{% if children.children|length > 0 %}{{ group.logo_img }}{% else %}{{ group.header_logo_img }}{% endif %}')"></div>
+    <h5>{{ group.title }}</h5>
+    <hr>
+    <!--<p> {{ group.description|safe }}</p>-->
+  </div>
+  {% if "change_group" in group_perms or user.is_superuser %}
+    <div class="editing-group-button">
+        <div>
+            {% if children.children|length > 0 and user.is_superuser %}
+            <a href="{% url 'macrogroup-update' group.slug %}" target="_blank">
+            {% else %}
+            <a href="{% url 'group-update' group.slug %}" target="_blank">
+            {% endif %}
+            <span class="icon-pencil"></span>
+            </a>
+        </div>
+    </div>
+  {% endif %}
+</div>

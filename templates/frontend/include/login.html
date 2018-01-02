@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load guardian_tags %}
+<div class="login hidden">
+<div class="page_name tk-museo-sans">{% if user.is_authenticated %}{% trans 'Admin' %}{% else %}{% trans 'Login' %}{% endif %}</div>
+<h1 class="tk-source-sans-pro">
+    {% if user.is_authenticated %}
+    {% trans 'Access to backend administration stystem or logout' %}
+    {% else %}
+    {% trans 'Login to go backend administration system' %}
+    {% endif %}
+</h1>
+<div class="paragraphs tk-source-sans-pro">
+<div class="normal-text">{{ generaldata.login_description|safe }}</div>
+
+    <div class="paragraphs no-columns tk-source-sans-pro">
+    <div class="block row">
+      <div class="col-md-6">
+      {% if user.is_authenticated %}
+      <div class="login-out-button">
+        <span class="filter">
+            <a class="btn btn-main go-admin" href="{% url 'home' %}">{% trans 'Backend' %}</a>
+        </span>
+        <span class="action">
+            <a class="btn btn-main btn-logout go-admin" href="{% url 'logout'%}?next=/">{% trans 'Logout' %}</a>
+        </span>
+      </div>
+      {% else %}
+        <form class="contact-form" action="{% url 'frontend-ajax-login' %}">
+            <div class="login-errors hidden"></div>
+            {% csrf_token %}
+            <input type="text" class="form-control" id="user" name="username" placeholder="USERNAME">
+            <input type="password" class="form-control" id="password" name="password" placeholder="PASSWORD">
+            <button class="submit-btn submit-login" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."> {% trans 'Login' %}</button>
+        </form>
+        <div id="result-message" role="alert"></div>
+      {% endif %}
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

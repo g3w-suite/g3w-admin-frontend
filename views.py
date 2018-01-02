@@ -81,22 +81,26 @@ class FrontendView(TemplateView):
         # add anonimous user to the context data
         # we get groups with base on permissions
         cdata['anonimoususer'] = AnonymousUser()
-        cdata['groups'] = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('name') \
+        groups = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('name') \
                  | get_objects_for_user(cdata['anonimoususer'], 'core.view_group', Group).order_by('name')
-        '''
+
+        cdata['groups'] = dict()
+
         for group in groups:
-            groupObj = dict()
-            groupObj['group'] = group
-            projects_viewable = get_objects_for_user(self.request.user, 'projects.view_project', Project).order_by(
-                'name') | get_objects_for_user(cdata['anonimoususer'], 'projects.view_project', Project).order_by(
-                'name')
-            if projects_viewable.count() > 0:
-                groupObj['group_view'] = True
+
+            # check if group has macrogroup
+            macrogroups = group.macrogroups.all()
+            if len(macrogroups) > 0:
+                for macrogroup in macrogroups:
+                    if macrogroup not in cdata['groups']:
+                        cdata['groups'].update({macrogroup: {'children': [group]}})
+                    else:
+                        if group not in cdata['groups'][macrogroup]['children']:
+                            cdata['groups'][macrogroup]['children'].append(group)
             else:
-                groupObj['group_view'] = False
-            groupObj['projects'] = group.project_set.all()
-            cdata['groups'].append(groupObj)
-        '''
+                cdata['groups'].update({group: {'children': []}})
+
+        #cdata['groups'] = groups
 
         # get data from generaldata
         cdata['generaldata'] = GeneralSuiteData.objects.get()

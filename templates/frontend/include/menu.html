@@ -1,0 +1,16 @@
+{% load i18n %}
+<div class="content-panel">
+    <div class="content-box">
+        <div class="icon-home">
+            <a href="#">Home</a>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="icon-admin-home">
+            <a href="{% url 'home' %}">{% trans 'Adminstration' %}</a>
+        </div>
+        {% endif %}
+        <div class="page_name">All Pages</div>
+            <h1 class="tk-source-sans-pro"></h1>
+        <div class="paragraphs"></div>
+    </div>
+</div>
