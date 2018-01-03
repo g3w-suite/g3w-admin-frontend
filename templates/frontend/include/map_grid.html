@@ -31,10 +31,9 @@
             {% if "view_project" in project_perms or "view_project" in project_perms_anonymoususer %}
                 <div class="project-data padd-40">
                 <div class="block row row-project">
-                    <div class="col-md-3 col-lg-3 col-sm-4" style="text-align: center; background: #8aa4af url({{ MEDIA_URL }}{{project.thumbnail }})">
+                    <div class="col-md-3 col-lg-3 col-sm-4 map-grid-item" style="text-align: center; background: #8aa4af url({{ MEDIA_URL }}{{project.thumbnail }})">
                         <div class="row">
                             <div class="col-md-12" style="min-height: 100px;">
-                                <!--<div class="icon"> <img class="img-thumbnail" src="{{ MEDIA_URL }}{{project.thumbnail }}" alt=""> </div>-->
                             </div>
                         </div>
 
@@ -53,6 +52,15 @@
                                 <span class="icon-pencil"></span>
                                 </a>
                                 {% endwith %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if project.thumbnail %}
+                        <div class="show-thumbnail">
+                            <div>
+                                <a href="{{ MEDIA_URL }}{{ project.thumbnail }}">
+                                    <span class="icon-size-fullscreen"></span>
+                                </a>
                             </div>
                         </div>
                         {% endif %}
@@ -81,3 +89,4 @@
 
     </div>
 </div>
+

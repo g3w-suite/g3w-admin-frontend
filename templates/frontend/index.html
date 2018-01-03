@@ -18,6 +18,7 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,300,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="{% static 'bower_components/cookieconsent/build/cookieconsent.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'frontend/css/simplelightbox.min.css' %}" />
 <style>
     .home-block {
         color:{{ home_image.main_color }};
@@ -109,6 +110,14 @@
 <script type="text/javascript" src="{% static 'frontend/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'frontend/js/common.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/cookieconsent/build/cookieconsent.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'frontend/js/simple-lightbox.min.js' %}"></script>
 {% include 'core/include/coockieconsent.html' %}
+<script>
+    var lightbox = null;
+    $(document).ready(function($){
+
+    });
+
+</script>
 </body>
 </html>

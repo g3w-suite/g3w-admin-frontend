@@ -6,8 +6,15 @@
         <h1 class="tk-source-sans-pro">{{ generaldata.title }}</h1>
         <div class="home-content">
             {% if generaldata.suite_logo %}
-            <img src="{{ MEDIA_URL }}{{ generaldata.suite_logo }}" alt="logo"><br>
+            {% if generaldata.url_suite_logo %}
+            <a href="{{ generaldata.url_suite_logo }}" target="_blank">
             {% endif %}
+            <img src="{{ MEDIA_URL }}{{ generaldata.suite_logo }}" alt="logo"><br>
+            {% if generaldata.url_suite_logo %}
+            </a>
+            {% endif %}
+            {% endif %}
+
           <br><br>
          <p>{{ generaldata.home_description|safe }}
              {% if home_image.author %}

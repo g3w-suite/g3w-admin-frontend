@@ -41,6 +41,8 @@ $(document).ready(function($) {
 	
 	setInterval(function() { $(window).trigger('resize') }, 1000);
 
+	var win_loc = window.location;
+
 	var change_page = function(event) {
 		event.preventDefault();
 
@@ -119,13 +121,21 @@ $(document).ready(function($) {
 			});
 
 		});
+
+		// ad hash url
+		if ($(this).hasClass('group-box')) {
+			var newHash = 'map=' + this_name;
+			var newURL = win_loc.href.split('#')[0] + '#' +  newHash;
+			win_loc.replace(newURL);
+		}
+
+		// start lightbox
+		window.lightbox = $('.show-thumbnail a').simpleLightbox();
 	};
 	
 	$('.colour_link').click(change_page);
 
 
-
-		
 	$('body').on('click', '.quick-links a', function(event) {
 		event.preventDefault();
 		
@@ -232,6 +242,21 @@ $(document).ready(function($) {
 			$('.colours.stuck').removeClass('stuck');
 		}
 	});
-	
+
+
+	// add directlink function
+	window.directlink = function (page_slug) {
+
+		// before open maps page
+		$('.colour_link.guestbook').click();
+		$('[data-name='+page_slug+']').click()
+    };
+
+	// get current url
+	var hash = win_loc.hash.substring(1);
+	var hash_data = hash.split('=');
+	if (hash_data[0] == 'map') {
+		directlink(hash_data[1]);
+	}
 
 });
