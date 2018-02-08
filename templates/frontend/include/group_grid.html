@@ -3,7 +3,7 @@
   <div class="box group-box"  data-name="maps-{{ group.slug }}">
     <span data-name="{% if children.children|length > 0 %}macro{% endif %}group-maps-{{ group.id }}"></span>
     <div class="icon" style="height:100px; background-image:url('{{ MEDIA_URL }}{% if children.children|length > 0 %}{{ group.logo_img }}{% else %}{{ group.header_logo_img }}{% endif %}')"></div>
-    <h5>{{ group.title }}</h5>
+    <h5>{% if group.name %}{{ group.name }}{% else %}{{ group.title }}{% endif %}</h5>
     <hr>
     <!--<p> {{ group.description|safe }}</p>-->
   </div>

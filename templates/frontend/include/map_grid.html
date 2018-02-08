@@ -3,7 +3,14 @@
 
 
 <div class="page_name tk-museo-sans">{% trans 'Group maps' %}</div>
+{% if group.name %}
+<h1 class="tk-source-sans-pro">{{ group.name }}
+<span class="sub-title">{{ group.title }}</span>
+</h1>
+{% else %}
 <h1 class="tk-source-sans-pro">{{ group.title }}</h1>
+{% endif %}
+
   <div class="row">
     <div class="col-md-12 col-sd-12 maps-{{ group.slug }}">
     <div class="paragraphs">
