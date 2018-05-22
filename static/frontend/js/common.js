@@ -1,4 +1,5 @@
 
+window.maps_history = ['groups'];
 
 $(document).ready(function($) {
   "use strict";
@@ -43,6 +44,7 @@ $(document).ready(function($) {
 
 	var win_loc = window.location;
 
+
 	var change_page = function(event) {
 		event.preventDefault();
 
@@ -50,6 +52,9 @@ $(document).ready(function($) {
 		$(this).attr('data-current', 'true');
 
 		var this_name = $(this).children().first().attr('data-name');
+		if (this_name == 'groups') {
+			window.maps_history = ['groups'];
+		}
 		$('.content-box > h1').html($('.' + this_name + ' > h1').html());
 		$('.content-box > .page_name').html($('.' + this_name + ' > .page_name').html());
 		$('.content-box .paragraphs').first().html($('.' + this_name + ' .paragraphs').first().html());
@@ -90,7 +95,8 @@ $(document).ready(function($) {
 			History.pushState({page:this_name}, $(this).find('span span').text() + ' | ' + 'Coloured Lines', $(this).attr('href'));
 		}
 
-		$('.content-box .group-box').on('click', change_page);
+		// add this for grops in macrogroups
+		$('.group-box').on('click', change_page);
 
 		// for login
 		$('.submit-login').on('click', function(event){
@@ -127,13 +133,27 @@ $(document).ready(function($) {
 			var newHash = 'map=' + this_name;
 			var newURL = win_loc.href.split('#')[0] + '#' +  newHash;
 			win_loc.replace(newURL);
+
+			// update history
+			if (this_name != 'groups') {
+				window.maps_history.push(this_name);
+			}
 		}
 
 		// start lightbox
 		window.lightbox = $('.show-thumbnail a').simpleLightbox();
+
+		$('.back-group-btn').click(function(event){
+			window.maps_history.pop();
+			var data_name = window.maps_history.pop();
+			$('[data-name="'+data_name+'"]').parent().click();
+		});
+
+
 	};
 	
 	$('.colour_link').click(change_page);
+
 
 
 	$('body').on('click', '.quick-links a', function(event) {
@@ -249,7 +269,7 @@ $(document).ready(function($) {
 
 		// before open maps page
 		$('.colour_link.guestbook').click();
-		$('[data-name='+page_slug+']').click()
+		$('[data-name='+page_slug+']').parent().click()
     };
 
 	// get current url
@@ -258,5 +278,6 @@ $(document).ready(function($) {
 	if (hash_data[0] == 'map') {
 		directlink(hash_data[1]);
 	}
+
 
 });

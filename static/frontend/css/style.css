@@ -1235,9 +1235,13 @@ article {
 	margin-left:-15px;
 }
 
-.login-out-button {
+.login-out-button, .back-group-btn {
 	margin-top:10px;
-	margin-left:30px;
+	margin-left:20px;
+}
+
+.back-group-btn {
+	background: black;
 }
 
 .editing-project-button {

@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>G3W-SUITE</title>
+<link rel="icon" href="{% static '/img/favicon.ico' %}">
 <!-- CSS  -->
 <link rel="stylesheet" href="{% static 'frontend/css/bootstrap.min.css' %}" type="text/css" media="all">
 <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}" type="text/css" media="all">
@@ -89,6 +90,7 @@
     {% for gchild in children.children %}
         {% with group=gchild children=0 %}
             <div class="group-maps-{{ group.id }} hidden">
+
                 {% include 'frontend/include/map_grid.html' %}
             </div>
         {% endwith %}
