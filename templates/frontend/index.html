@@ -42,6 +42,9 @@
         color: {{ home_image.subtitle_color }};
     }
 </style>
+{% if analytics_js_code %}
+    {{ analytics_js_code|safe }}
+{% endif %}
 </head>
 
 <body>
