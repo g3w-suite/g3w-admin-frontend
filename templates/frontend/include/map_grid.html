@@ -24,12 +24,14 @@
         </div>
 
         {% if children.children|length > 0 %}
+            <div class="container padd-30">
             {% for gchild in children.children %}
                 {% with group=gchild children=0 %}
                     {% get_obj_perms user for group as "group_perms" %}
                     {% include 'frontend/include/group_grid.html' %}
                 {% endwith %}
             {% endfor %}
+            </div>
         {% else %}
 
             {% with group.getProjects as projects %}
