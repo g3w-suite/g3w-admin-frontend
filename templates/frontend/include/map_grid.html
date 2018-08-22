@@ -1,0 +1,101 @@
+{% load guardian_tags %}
+{% load i18n %}
+
+
+<div class="page_name tk-museo-sans">{% trans 'Group maps' %}</div>
+{% if group.name %}
+<h1 class="tk-source-sans-pro">{{ group.name }}
+<span class="sub-title">{{ group.title }}</span>
+</h1>
+{% else %}
+<h1 class="tk-source-sans-pro">{{ group.title }}</h1>
+{% endif %}
+
+  <div class="row">
+    <div class="col-md-12 col-sd-12 maps-{{ group.slug }}">
+    <div class="paragraphs">
+        <div class="row normal-text group-maps-description">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                {{ group.description|safe }}
+            </div>
+            <div>
+                <a class="btn btn-main back-group-btn" href="#">{% trans 'Back to group' %}</a>
+            </div>
+        </div>
+
+        {% if children.children|length > 0 %}
+            <div class="container padd-30">
+            {% for gchild in children.children %}
+                {% with group=gchild children=0 %}
+                    {% get_obj_perms user for group as "group_perms" %}
+                    {% include 'frontend/include/group_grid.html' %}
+                {% endwith %}
+            {% endfor %}
+            </div>
+        {% else %}
+
+            {% with group.getProjects as projects %}
+            {% with group.get_panoramic_project as pano_project %}
+            {% for app, project in projects %}
+            {% if project != pano_project or projects|length == 1 %}
+            {% get_obj_perms user for project as "project_perms" %}
+            {% get_obj_perms anonimoususer for project as "project_perms_anonymoususer" %}
+            {% if "view_project" in project_perms or "view_project" in project_perms_anonymoususer %}
+                <div class="project-data padd-40">
+                <div class="block row row-project" style="display:flex; align-items: center;">
+                    <div class="col-md-3 col-lg-3 col-sm-4 map-grid-item" style="text-align: center; background: #8aa4af {% if project.thumbnail %}url({{ MEDIA_URL }}{{ project.thumbnail }}) {% endif%}; background-size: cover; ">
+                        <div class="row">
+                            <div class="col-md-12" style="min-height: 100px;">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="action action-project" >
+                                    <a class="go-admin btn btn-main btn-showmap" href="{% url 'group-project-map' group.slug project.get_type project.pk %}" target="_blank">{% trans 'Show map' %}</a>
+                                </p>
+                            </div>
+                        </div>
+                        {% if "change_project" in project_perms %}
+                        <div class="editing-project-button">
+                            <div>
+                                {% with project.get_type|add:'-project-update' as project_update_link %}
+                                <a href="{% url project_update_link group.slug project.slug %}" target="_blank">
+                                <span class="icon-pencil"></span>
+                                </a>
+                                {% endwith %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if project.thumbnail %}
+                        <div class="show-thumbnail">
+                            <div>
+                                <a href="{{ MEDIA_URL }}{{ project.thumbnail }}">
+                                    <span class="icon-size-fullscreen"></span>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-9  col-lg-9 col-sm-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="row-project-title">{{ project.title }}</h3>
+                            </div>
+                             <div class="col-md-12 text-muted">
+                                {{ project.description|safe}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endwith %}
+            {% endwith %}
+        {% endif %}
+    </div>
+
+    </div>
+</div>

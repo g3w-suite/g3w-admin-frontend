@@ -1,0 +1,30 @@
+{% load i18n %}
+<div class="col-lg-5 ol-md-5 col-sm-12 col-xs-12">
+    <div class="colours tk-museo-sans stuck ">
+        <a href="#" class="colour_link who_we_are" data-current="false">
+            <span data-colour="#f2b701" data-name="about_it" class="colour" >
+                <span>
+                    <i class="menu-img icon-globe"></i>
+                    {% trans 'About It' %}
+                </span>
+            </span>
+        </a>
+        <a href="#" class="colour_link guestbook" data-current="false">
+            <span data-colour="#dc0030" data-name="groups" class="colour" >
+                <span>
+                    <i class="menu-img icon-map"></i>
+                    {% trans 'Maps' %}
+                </span>
+        </span>
+        </a>
+        <a href="#" class="colour_link products" Accidentcurrent="false">
+            <span data-colour="#7c378a" data-name="login" class="colour">
+                <span>
+                    <i class="menu-img icon-lock"></i>
+                    {% if user.is_authenticated %}{% trans 'Admin' %}{% else %}{% trans 'Login' %}{% endif %}
+                </span>
+            </span>
+        </a>
+
+    </div>
+</div>

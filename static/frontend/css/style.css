@@ -1235,9 +1235,13 @@ article {
 	margin-left:-15px;
 }
 
-.login-out-button {
+.login-out-button, .back-group-btn {
 	margin-top:10px;
-	margin-left:30px;
+	margin-left:20px;
+}
+
+.back-group-btn {
+	background: black;
 }
 
 .editing-project-button {
@@ -1252,20 +1256,29 @@ article {
 	right: 31px;
 }
 
+.show-thumbnail {
+	position:absolute;
+	top: 10px;
+	left: 4px;
+}
+
 .editing-project-button > div,
-.editing-group-button > div {
+.editing-group-button > div,
+.show-thumbnail > div{
 	display: block;
 	width: 18px;
 	height: 18px;
 }
 
 .editing-project-button > div > a:link,
-.editing-group-button > div > a:link {
+.editing-group-button > div > a:link,
+.show-thumbnail > div > a:link{
 	color: green;
 }
 
 .editing-project-button > div > a > span.icon-pencil,
-.editing-group-button > div > a > span.icon-pencil{
+.editing-group-button > div > a > span.icon-pencil,
+.show-thumbnail > div > a > span.icon-size-fullscreen {
 	font-size: 18px;
 	padding: 6px;
 	background-color: black;
@@ -1274,8 +1287,14 @@ article {
 }
 
 .editing-project-button > div > a > span.icon-pencil:hover,
-.editing-group-button > div > a > span.icon-pencil:hover {
+.editing-group-button > div > a > span.icon-pencil:hover,
+.show-thumbnail > div > a > span.icon-size-fullscreen:hover {
 	opacity: .9;
+}
+
+.sub-title {
+	display: block;
+	font-size: 80%;
 }
 
 

@@ -1,0 +1,44 @@
+{% load staticfiles %}
+{% load i18n %}
+<div class="about_it hidden">
+    <div class="page_name tk-museo-sans">{% trans 'About It' %}</div>
+    <h1 class="tk-source-sans-pro">{{ generaldata.about_title }}</h1>
+
+    <div class="paragraphs tk-source-sans-pro">
+        <div class="normal-text">{{ generaldata.about_description|safe }}</div>
+        <div class="info-block">
+            <ul>
+                <li class="name"><strong>{{ generaldata.about_name }}</strong></li>
+                <li class="phone">{{ generaldata.about_tel }}</li>
+                   <li class="email"><a class="blank" href="mailto:{{ generaldata.about_email }}">{{ generaldata.about_email }}   </a></li>
+                <li class="address">{{ generaldata.about_address }}</li>
+                <li>
+                    <div class="social-buttons">
+                        {% if generaldata.facebook_url %}
+                        <a class="facebook" href="{{ generaldata.facebook_url }}" target="_blank"></a>
+                        {% endif %}
+                        {% if generaldata.twitter_url %}
+                        <a class="twitter" href="{{ generaldata.twitter_url }}" target="_blank"></a>
+                        {% endif %}
+                        {% if generaldata.googleplus_url %}
+                        <a class="google-plus" href="{{ generaldata.googleplus_url }}" target="_blank"></a>
+                        {% endif %}
+                        {% if generaldata.youtube_url %}
+                        <a class="youtube" href="{{ generaldata.youtube_url }}" target="_blank"></a>
+                        {% endif %}
+                        {% if generaldata.instagram_url %}
+                        <a class="instagram" href="{{ generaldata.instagram_url }}" target="_blank"></a>
+                        {% endif %}
+                        {% if generaldata.flickr_url %}
+                        <a class="flickr" href="{{ generaldata.flickr_url }}" target="_blank"></a>
+                        {% endif %}
+                        {% if generaldata.tripadvisor_url %}
+                        <a class="tripadvisor" href="{{ generaldata.tripadvisor_url }}" target="_blank"></a>
+                        {% endif %}
+                </div>
+                </li>
+            </ul>
+        </div>
+        <div class="photo-img"><img src="{% static 'frontend/images/photo-img1.jpg' %}" alt="Sarah Smith"  style="alignment-baseline:"/></div>
+      </div>
+</div>
