@@ -1297,4 +1297,6 @@ article {
 	font-size: 80%;
 }
 
-
+.paragraphs .map-description p {
+	margin-left: 0px;
+}
