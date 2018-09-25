@@ -9,6 +9,7 @@ from guardian.shortcuts import get_objects_for_user
 from core.models import Group, GeneralSuiteData
 from core.mixins.views import AjaxableFormResponseMixin
 from .configs import home_images_default
+from collections import OrderedDict
 import random
 import os
 import json
@@ -81,25 +82,24 @@ class FrontendView(TemplateView):
         # add anonimous user to the context data
         # we get groups with base on permissions
         cdata['anonimoususer'] = AnonymousUser()
-        #groups = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('name') \
-        #         | get_objects_for_user(cdata['anonimoususer'], 'core.view_group', Group).order_by('name')
 
         groups = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('order') \
                  | get_objects_for_user(cdata['anonimoususer'], 'core.view_group', Group).order_by('order')
 
-        cdata['groups'] = dict()
+        cdata['groups'] = OrderedDict()
+        cdata['macrogroups'] = OrderedDict()
 
         for group in groups:
 
             # check if group has macrogroup
-            macrogroups = group.macrogroups.all()
+            macrogroups = group.macrogroups.order_by('order').all()
             if len(macrogroups) > 0:
                 for macrogroup in macrogroups:
-                    if macrogroup not in cdata['groups']:
-                        cdata['groups'].update({macrogroup: {'children': [group]}})
+                    if macrogroup not in cdata['macrogroups']:
+                        cdata['macrogroups'].update({macrogroup: {'children': [group]}})
                     else:
-                        if group not in cdata['groups'][macrogroup]['children']:
-                            cdata['groups'][macrogroup]['children'].append(group)
+                        if group not in cdata['macrogroups'][macrogroup]['children']:
+                            cdata['macrogroups'][macrogroup]['children'].append(group)
             else:
                 cdata['groups'].update({group: {'children': []}})
 

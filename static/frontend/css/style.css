@@ -1300,3 +1300,7 @@ article {
 .paragraphs .map-description p {
 	margin-left: 0px;
 }
+
+h2.groups-section-title {
+	margin:40px 0px 10px;
+}
