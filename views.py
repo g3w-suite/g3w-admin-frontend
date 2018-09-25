@@ -81,8 +81,11 @@ class FrontendView(TemplateView):
         # add anonimous user to the context data
         # we get groups with base on permissions
         cdata['anonimoususer'] = AnonymousUser()
-        groups = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('name') \
-                 | get_objects_for_user(cdata['anonimoususer'], 'core.view_group', Group).order_by('name')
+        #groups = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('name') \
+        #         | get_objects_for_user(cdata['anonimoususer'], 'core.view_group', Group).order_by('name')
+
+        groups = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('order') \
+                 | get_objects_for_user(cdata['anonimoususer'], 'core.view_group', Group).order_by('order')
 
         cdata['groups'] = dict()
 

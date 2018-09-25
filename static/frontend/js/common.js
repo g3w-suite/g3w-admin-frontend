@@ -74,6 +74,7 @@ $(document).ready(function($) {
 		}
 
 		$('.content-box').attr('data-page', this_name);
+		$('.content-box').css('bottom', '100px');
 
 		if ($('.colours').is('.moved') == false)
 		{
