@@ -12,16 +12,16 @@
 <div class="paragraphs tk-source-sans-pro">
 <div class="normal-text">{{ generaldata.login_description|safe }}</div>
 
-    <div class="paragraphs no-columns tk-source-sans-pro">
+    <div class="paragraphs no-columns tk-source-sans-pro m-top-10">
     <div class="block row">
-      <div class="col-md-6">
+      <div class="col-md-6" style="padding-left: 24px;">
       {% if user.is_authenticated %}
       <div class="login-out-button">
         <span class="filter">
-            <a class="btn btn-main go-admin" href="{% url 'home' %}">{% trans 'Backend' %}</a>
+            <a class="btn btn-main go-admin" style="display: inline" href="{% url 'home' %}">{% trans 'Backend' %}</a>
         </span>
         <span class="action">
-            <a class="btn btn-main btn-logout go-admin" href="{% url 'logout'%}?next=/">{% trans 'Logout' %}</a>
+            <a class="btn btn-main btn-logout go-admin" style="display: inline" href="{% url 'logout'%}?next=/">{% trans 'Logout' %}</a>
         </span>
       </div>
       {% else %}

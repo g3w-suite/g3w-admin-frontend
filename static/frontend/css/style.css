@@ -901,6 +901,7 @@ html.ie7 .icon-home, html.ie7 .icon-admin-home {
 
 .go-admin {
 	margin-left: 0px;
+	display: inline;
 }
 
 /* 10. Blog */
@@ -1238,10 +1239,19 @@ article {
 .login-out-button, .back-group-btn {
 	margin-top:10px;
 	margin-left:20px;
+	display: inline;
 }
 
 .back-group-btn {
 	background: black;
+}
+
+.back-group-btn:before {
+    content: '\f137';
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: #7ac142;
+    margin-right: 20px;
 }
 
 .editing-project-button {
@@ -1304,3 +1314,8 @@ article {
 h2.groups-section-title {
 	margin:40px 0px 10px;
 }
+
+.m-top-10 {	margin-top: 10px; }
+.m-top-15 {	margin-top: 10px; }
+.m-top-20 {	margin-top: 10px; }
+

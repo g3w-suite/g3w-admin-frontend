@@ -14,11 +14,12 @@
   <div class="row">
     <div class="col-md-12 col-sd-12 maps-{{ group.slug }}">
     <div class="paragraphs">
-        <div class="row normal-text group-maps-description">
+        <div class="normal-text group-maps-description">
+            {{ group.description|safe }}
+        </div>
+        <div class="row">
+
             <div class="col-md-12 col-lg-12 col-sm-12">
-                {{ group.description|safe }}
-            </div>
-            <div>
                 <a class="btn btn-main back-group-btn" href="#">{% trans 'Back to group' %}</a>
             </div>
         </div>
