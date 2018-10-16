@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-19 14:34+0000\n"
+"POT-Creation-Date: 2018-10-07 15:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,51 +18,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: frontend/templates/frontend/index.html:84
-#: frontend/templates/frontend/index.html:134
+#: templates/frontend/include/about.html:4
+#: templates/frontend/include/sidebar.html:8
 msgid "About It"
-msgstr "Cos'è"
+msgstr ""
 
-#: frontend/templates/frontend/index.html:94
-#: frontend/templates/frontend/index.html:177
-msgid "Maps"
-msgstr "Mappe"
-
-#: frontend/templates/frontend/index.html:104
-#: frontend/templates/frontend/index.html:299
+#: templates/frontend/include/login.html:4
+#: templates/frontend/include/sidebar.html:24
 msgid "Admin"
-msgstr "Accesso"
-
-#: frontend/templates/frontend/index.html:104
-#: frontend/templates/frontend/index.html:299
-#: frontend/templates/frontend/index.html:328
-msgid "Login"
-msgstr "Accedi"
-
-#: frontend/templates/frontend/index.html:123
-msgid "Adminstration"
 msgstr "Amministrazione"
 
-#: frontend/templates/frontend/index.html:223
-msgid "Group maps"
-msgstr "Mappe del gruppo"
+#: templates/frontend/include/login.html:4
+#: templates/frontend/include/login.html:33
+#: templates/frontend/include/sidebar.html:24
+msgid "Login"
+msgstr ""
 
-#: frontend/templates/frontend/index.html:252
+#: templates/frontend/include/login.html:7
+msgid "Access to backend administration stystem or logout"
+msgstr "Accedi alla sezione di amministrazione o esci"
+
+#: templates/frontend/include/login.html:9
+msgid "Login to go backend administration system"
+msgstr "Esegui il login per accedere alla sezione di amministrazione"
+
+#: templates/frontend/include/login.html:21
+msgid "Backend"
+msgstr "Amministrazione"
+
+#: templates/frontend/include/login.html:24
+msgid "Logout"
+msgstr "Esci"
+
+#: templates/frontend/include/map_grid.html:5
+msgid "Group maps"
+msgstr "Gruppo di mappe"
+
+#: templates/frontend/include/map_grid.html:22
+msgid "Back to group"
+msgstr "Ritorna al gruppo"
+
+#: templates/frontend/include/map_grid.html:55
 msgid "Show map"
 msgstr "Mostra mappa"
 
-#: frontend/templates/frontend/index.html:302
-msgid "Access to backend administration stystem or logout"
-msgstr "Accedi al pannello di amministrazione o esci"
+#: templates/frontend/include/menu.html:9
+msgid "Adminstration"
+msgstr "Amministrazione"
 
-#: frontend/templates/frontend/index.html:304
-msgid "Login to go backend administration system"
-msgstr "Accesso al sistema di amministrazione"
+#: templates/frontend/include/sidebar.html:16 templates/frontend/index.html:65
+msgid "Maps"
+msgstr "Mappe"
 
-#: frontend/templates/frontend/index.html:316
-msgid "Backend"
-msgstr "Backend"
+#: templates/frontend/index.html:73
+msgid "Thematic macrogroups"
+msgstr "Macrogruppi tematici"
 
-#: frontend/templates/frontend/index.html:319
-msgid "Logout"
-msgstr "Esci"
+#: templates/frontend/index.html:83
+msgid "Thematic groups"
+msgstr "Gruppi tematici"

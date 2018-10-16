@@ -68,6 +68,19 @@
     <div class="normal-text"> {{ generaldata.groups_map_description|safe }} </div>
     <div class="container padd-30">
      <!-- Service Row -->
+
+    {% if macrogroups|length > 0 %}
+    <h2 class="groups-section-title">{% trans 'Thematic macrogroups' %}</h2>
+      <div class="row">
+
+        {% for group, children in macrogroups.items %}
+        {% get_obj_perms user for group as "group_perms" %}
+        <!-- Service -->
+            {% include 'frontend/include/group_grid.html' %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    <h2 class="groups-section-title">{% trans 'Thematic groups' %}</h2>
       <div class="row">
 
         {% for group, children in groups.items %}
@@ -75,7 +88,6 @@
         <!-- Service -->
             {% include 'frontend/include/group_grid.html' %}
         {% endfor %}
-
       </div>
     </div>
     <div class="group-projects">
@@ -84,6 +96,25 @@
     </div>
   </div>
 </div>
+
+<!-- MACROGROUPS MAPS grid page -->
+{% for group, children in macrogroups.items %}
+{% get_obj_perms user for group as "group_perms" %}
+<!-- build als for macrogroup children -->
+{% if children.children|length > 0 %}
+    {% for gchild in children.children %}
+        {% with group=gchild children=0 %}
+            <div class="group-maps-{{ group.id }} hidden">
+
+                {% include 'frontend/include/map_grid.html' %}
+            </div>
+        {% endwith %}
+    {% endfor %}
+{% endif %}
+<div class="{% if children.children|length > 0 %}macro{% endif %}group-maps-{{ group.id }} hidden">
+    {% include 'frontend/include/map_grid.html' %}
+</div>
+{% endfor %}
 
 <!-- MAPS grid page -->
 {% for group, children in groups.items %}

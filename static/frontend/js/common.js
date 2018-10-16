@@ -20,7 +20,7 @@ $(document).ready(function($) {
 	$('.colour').last().css('height', Math.floor(window_height/menu_items_number) + window_height%menu_items_number);
 	
 	$('.circle, .home-block').height($('.colours').height());
-	
+
 	$(window).resize(function() {
 		var window_height = ($(window).height() > 700) ? $(window).height() : 700;
 		
@@ -48,6 +48,8 @@ $(document).ready(function($) {
 	var change_page = function(event) {
 		event.preventDefault();
 
+		$('.group-box').off('click', change_page);
+
 		$('.colour_link').attr('data-current', 'false');
 		$(this).attr('data-current', 'true');
 
@@ -72,6 +74,7 @@ $(document).ready(function($) {
 		}
 
 		$('.content-box').attr('data-page', this_name);
+		//$('.content-box').css('padding-bottom', '100px');
 
 		if ($('.colours').is('.moved') == false)
 		{
@@ -89,13 +92,15 @@ $(document).ready(function($) {
 			$('.content-panel, .content-box, body').stop().find('span').attr('data-colour'), 500;
 		}
 
+		/*
 		if (History.enabled)
 		{
 			window.manualStateChange = false;
 			History.pushState({page:this_name}, $(this).find('span span').text() + ' | ' + 'Coloured Lines', $(this).attr('href'));
 		}
+		*/
 
-		// add this for grops in macrogroups
+		// add this for groups in macrogroups
 		$('.group-box').on('click', change_page);
 
 		// for login
@@ -129,7 +134,7 @@ $(document).ready(function($) {
 		});
 
 		// ad hash url
-		if ($(this).hasClass('group-box')) {
+		if ($(this).hasClass('group-box') || this_name == 'groups') {
 			var newHash = 'map=' + this_name;
 			var newURL = win_loc.href.split('#')[0] + '#' +  newHash;
 			win_loc.replace(newURL);
@@ -144,15 +149,14 @@ $(document).ready(function($) {
 		window.lightbox = $('.show-thumbnail a').simpleLightbox();
 
 		$('.back-group-btn').click(function(event){
-			window.maps_history.pop();
 			var data_name = window.maps_history.pop();
+			data_name = window.maps_history.pop();
 			$('[data-name="'+data_name+'"]').parent().click();
 		});
 
-
 	};
-	
-	$('.colour_link').click(change_page);
+
+	$('.colour_link').on('click', change_page);
 
 
 
@@ -190,12 +194,14 @@ $(document).ready(function($) {
 	$('.icon-home a').on('click', function(event) {
 		event.preventDefault();
 		event.stopPropagation();
-		
+
+		/*
 		if (History.enabled)
 		{
 			History.replaceState({page:'home'}, 'Coloured Lines', '/');
 			//$(window).trigger('statechange');
 		}
+		*/
 		
 		$('.colours').stop().removeClass('moved').delay(500).removeClass('moving');
 		$('.icon-home').stop().fadeOut();

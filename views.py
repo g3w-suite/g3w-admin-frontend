@@ -6,9 +6,10 @@ from django.contrib.auth.models import AnonymousUser
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
 from guardian.shortcuts import get_objects_for_user
-from core.models import Group, GeneralSuiteData
+from core.models import Group, GeneralSuiteData, MacroGroup
 from core.mixins.views import AjaxableFormResponseMixin
 from .configs import home_images_default
+from collections import OrderedDict
 import random
 import os
 import json
@@ -81,10 +82,15 @@ class FrontendView(TemplateView):
         # add anonimous user to the context data
         # we get groups with base on permissions
         cdata['anonimoususer'] = AnonymousUser()
-        groups = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('name') \
-                 | get_objects_for_user(cdata['anonimoususer'], 'core.view_group', Group).order_by('name')
 
-        cdata['groups'] = dict()
+        groups = get_objects_for_user(self.request.user, 'core.view_group', Group).order_by('order') \
+                 | get_objects_for_user(cdata['anonimoususer'], 'core.view_group', Group).order_by('order')
+
+        cdata['groups'] = OrderedDict()
+        cdata['macrogroups'] = OrderedDict()
+        tmp_macrogroups = dict()
+
+        ordered_macrogroups = MacroGroup.objects.order_by('order').all()
 
         for group in groups:
 
@@ -92,15 +98,18 @@ class FrontendView(TemplateView):
             macrogroups = group.macrogroups.all()
             if len(macrogroups) > 0:
                 for macrogroup in macrogroups:
-                    if macrogroup not in cdata['groups']:
-                        cdata['groups'].update({macrogroup: {'children': [group]}})
+                    if macrogroup not in tmp_macrogroups:
+                        tmp_macrogroups.update({macrogroup: {'children': [group]}})
                     else:
-                        if group not in cdata['groups'][macrogroup]['children']:
-                            cdata['groups'][macrogroup]['children'].append(group)
+                        if group not in tmp_macrogroups[macrogroup]['children']:
+                            tmp_macrogroups[macrogroup]['children'].append(group)
             else:
                 cdata['groups'].update({group: {'children': []}})
 
-        #cdata['groups'] = groups
+        # order macrogroups by
+        for macrogroup in ordered_macrogroups:
+            if macrogroup in tmp_macrogroups:
+                cdata['macrogroups'][macrogroup] = tmp_macrogroups[macrogroup]
 
         # get data from generaldata
         cdata['generaldata'] = GeneralSuiteData.objects.get()
