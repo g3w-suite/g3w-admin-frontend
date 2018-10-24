@@ -46,6 +46,12 @@
         color: {{ home_image.subtitle_color }};
     }
 </style>
+{% if SETTINGS.G3WSUITE_CUSTOM_STATIC_URL %}
+{% for css in SETTINGS.G3WSUITE_CUSTOM_CSS %}
+<link rel="stylesheet" type="text/css" href="{{ css }}" />
+{% endfor %}
+{% endif %}
+
 {% if analytics_js_code %}
     {{ analytics_js_code|safe }}
 {% endif %}
