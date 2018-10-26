@@ -1,5 +1,5 @@
 {% load guardian_tags %}
-<div class="col-md-4">
+<div class="col-md-4 {% if children.children|length > 0 %}macro{% endif %}group-grid-cell">
   <div class="box group-box"  data-name="maps-{{ group.slug }}">
     <span data-name="{% if children.children|length > 0 %}macro{% endif %}group-maps-{{ group.id }}"></span>
     <div class="icon" style="height:100px; background-image:url('{{ MEDIA_URL }}{% if children.children|length > 0 %}{{ group.logo_img }}{% else %}{{ group.header_logo_img }}{% endif %}')"></div>
