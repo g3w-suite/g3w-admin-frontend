@@ -8,8 +8,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>G3W-SUITE</title>
+<title>{{ page_title }}</title>
+{% if SETTINGS.G3WSUITE_CUSTOM_STATIC_URL and SETTINGS.G3WSUITE_FAVICON %}
+<link rel="icon" href="{{ SETTINGS.G3WSUITE_FAVICON }}">
+{% else %}
 <link rel="icon" href="{% static '/img/favicon.ico' %}">
+{% endif %}
 <!-- CSS  -->
 <link rel="stylesheet" href="{% static 'frontend/css/bootstrap.min.css' %}" type="text/css" media="all">
 <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}" type="text/css" media="all">
@@ -42,6 +46,12 @@
         color: {{ home_image.subtitle_color }};
     }
 </style>
+{% if SETTINGS.G3WSUITE_CUSTOM_STATIC_URL %}
+{% for css in SETTINGS.G3WSUITE_CUSTOM_CSS %}
+<link rel="stylesheet" type="text/css" href="{{ css }}" />
+{% endfor %}
+{% endif %}
+
 {% if analytics_js_code %}
     {{ analytics_js_code|safe }}
 {% endif %}

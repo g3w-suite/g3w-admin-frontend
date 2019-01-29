@@ -114,6 +114,8 @@ class FrontendView(TemplateView):
         # get data from generaldata
         cdata['generaldata'] = GeneralSuiteData.objects.get()
 
+        cdata['page_title'] = getattr(settings, 'G3WSUITE_CUSTOM_TITLE', 'G3W-SUITE')
+
         # get home images data
         home_images = self.get_home_images()
 
