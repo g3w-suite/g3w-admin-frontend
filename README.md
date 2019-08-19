@@ -9,7 +9,7 @@ G3W-ADMIN fronted portal for G3W-SUITE.
 Add like git submodule from main g3w-admin directory
 
 ```bash
-git submodule add -f https://<user>@bitbucket.org/gis3w/g3w-admin-frontend.git g3w-admin/frontend
+git submodule add -f https://<user>@github.com/g3w-suite/g3w-admin-frontend.git g3w-admin/frontend
 ```
 
 Add 'frontend' module to G3W_LOCAL_MORE_APPS config value inside local_settings.py:
