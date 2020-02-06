@@ -32,6 +32,10 @@
         {% else %}
         background: #fff url(../../static/frontend/images/home/{{ home_image.image }}) no-repeat top left;
         {% endif %}
+
+        {% if SETTINGS.FRONTEND_IMAGES_BACKGORUND_SIZE %}
+        background-size: {% SETTINGS.FRONTEND_IMAGES_BACKGORUND_SIZE %};
+        {% endif %}
     }
 
     .home-block h1 {
