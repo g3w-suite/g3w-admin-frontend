@@ -41,6 +41,13 @@ G3WADMIN_LOCAL_MORE_APPS = [
 
 * Whilst inside the running container of  `g3w-suite` container makemigrations, migrate and collect static
 
+In order to run the management command you need to set the display. Run the following
+
+```
+export DISPLAY=:99
+```
+then run the following
+
 ```bash
 python3 manage.py makemigrations frontend
 python3 manage.py migrate frontend
