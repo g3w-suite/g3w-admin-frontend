@@ -4,7 +4,9 @@ G3W-ADMIN fronted portal for G3W-SUITE.
 
 ![Portal GUI](frontend.png)
 
-## Installation
+## Docker Install
+
+### Running in Docker 
 
 * Clone the [g3w-suite-docker repository](https://github.com/g3w-suite/g3w-suite-docker)
 
@@ -67,4 +69,44 @@ FRONTEND_APP = 'frontend'
 * Logout of the running g3w-suite container. 
 
 * Navigate to the URL specified by the docker-compose: 
+http://localhost:8080
+
+## Installation in virtual env or on host (Debian / Ubuntu etc)
+
+Add like git submodule from main g3w-admin directory
+
+```bash
+git submodule add -f https://github.com/g3w-suite/g3w-admin-frontend.git  g3w-admin/frontend
+```
+
+Add 'frontend' module to G3W_LOCAL_MORE_APPS config value inside local_settings.py:
+
+```python
+G3WADMIN_LOCAL_MORE_APPS = [
+    ...
+    'frontend'
+    ...
+]
+```
+
+Apply migrations:
+
+To build 'notes' database:
+
+```bash
+python3 manage.py makemigrations frontend
+python3 manage.py migrate frontend
+python3 manage.py collectstatic --noinput
+```
+
+To activate 'frontend' module and to set the frontend app for G3W-SUITE set in to local_settings.py:
+
+```python
+...
+FRONTEND = True
+FRONTEND_APP = 'frontend'
+...
+```
+
+* Navigate to the URL of the g3wsuite instance i.e 
 http://localhost:8080
