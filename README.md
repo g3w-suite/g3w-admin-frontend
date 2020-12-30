@@ -46,6 +46,7 @@ G3WADMIN_LOCAL_MORE_APPS = [
 In order to run the management command you need to set the display. Run the following
 
 ```
+cd g3w-admin
 export DISPLAY=:99
 ```
 then run the following
