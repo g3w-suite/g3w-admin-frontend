@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-08 08:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: templates/frontend/include/about.html:4
+#: templates/frontend/include/sidebar.html:8
+msgid "About It"
+msgstr ""
+
+#: templates/frontend/include/login.html:4
+#: templates/frontend/include/sidebar.html:24
+msgid "Admin"
+msgstr ""
+
+#: templates/frontend/include/login.html:4
+#: templates/frontend/include/login.html:33
+#: templates/frontend/include/sidebar.html:24
+msgid "Login"
+msgstr ""
+
+#: templates/frontend/include/login.html:7
+msgid "Access to backend administration stystem or logout"
+msgstr ""
+
+#: templates/frontend/include/login.html:9
+msgid "Login to go backend administration system"
+msgstr ""
+
+#: templates/frontend/include/login.html:21
+msgid "Backend"
+msgstr ""
+
+#: templates/frontend/include/login.html:24
+msgid "Logout"
+msgstr ""
+
+#: templates/frontend/include/map_grid.html:5
+msgid "Group maps"
+msgstr ""
+
+#: templates/frontend/include/map_grid.html:23
+msgid "Back to group"
+msgstr ""
+
+#: templates/frontend/include/map_grid.html:56
+msgid "Show map"
+msgstr ""
+
+#: templates/frontend/include/menu.html:9
+msgid "Adminstration"
+msgstr ""
+
+#: templates/frontend/include/sidebar.html:16 templates/frontend/index.html:75
+msgid "Maps"
+msgstr ""
+
+#: templates/frontend/index.html:83
+msgid "Thematic macrogroups"
+msgstr ""
+
+#: templates/frontend/index.html:93
+msgid "Thematic groups"
+msgstr ""
