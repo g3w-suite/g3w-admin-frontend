@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 {% load guardian_tags %}
 {% load g3wadmin_tags %}
 {% load i18n %}
@@ -157,7 +157,7 @@
 <script type="text/javascript" src="{% static 'frontend/js/common.js' %}"></script>
 <script type="text/javascript" src="{% static 'bower_components/cookieconsent/build/cookieconsent.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'frontend/js/simple-lightbox.min.js' %}"></script>
-{% include 'core/include/coockieconsent.html' %}
+{% include 'core/include/cookieconsent.html' %}
 <script>
     var lightbox = null;
     $(document).ready(function($){
