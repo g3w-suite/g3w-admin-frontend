@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-07 15:47+0000\n"
+"POT-Creation-Date: 2019-09-24 15:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,62 +18,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/frontend/include/about.html:4
-#: templates/frontend/include/sidebar.html:8
+#: frontend/templates/frontend/include/about.html:4
+#: frontend/templates/frontend/include/sidebar.html:8
 msgid "About It"
 msgstr ""
 
-#: templates/frontend/include/login.html:4
-#: templates/frontend/include/sidebar.html:24
+#: frontend/templates/frontend/include/login.html:4
+#: frontend/templates/frontend/include/sidebar.html:24
 msgid "Admin"
 msgstr "Amministrazione"
 
-#: templates/frontend/include/login.html:4
-#: templates/frontend/include/login.html:33
-#: templates/frontend/include/sidebar.html:24
+#: frontend/templates/frontend/include/login.html:4
+#: frontend/templates/frontend/include/login.html:33
+#: frontend/templates/frontend/include/sidebar.html:24
 msgid "Login"
 msgstr ""
 
-#: templates/frontend/include/login.html:7
+#: frontend/templates/frontend/include/login.html:7
 msgid "Access to backend administration stystem or logout"
 msgstr "Accedi alla sezione di amministrazione o esci"
 
-#: templates/frontend/include/login.html:9
+#: frontend/templates/frontend/include/login.html:9
 msgid "Login to go backend administration system"
 msgstr "Esegui il login per accedere alla sezione di amministrazione"
 
-#: templates/frontend/include/login.html:21
+#: frontend/templates/frontend/include/login.html:21
 msgid "Backend"
 msgstr "Amministrazione"
 
-#: templates/frontend/include/login.html:24
+#: frontend/templates/frontend/include/login.html:24
 msgid "Logout"
 msgstr "Esci"
 
-#: templates/frontend/include/map_grid.html:5
+#: frontend/templates/frontend/include/map_grid.html:5
 msgid "Group maps"
 msgstr "Gruppo di mappe"
 
-#: templates/frontend/include/map_grid.html:22
+#: frontend/templates/frontend/include/map_grid.html:23
 msgid "Back to group"
 msgstr "Ritorna al gruppo"
 
-#: templates/frontend/include/map_grid.html:55
+#: frontend/templates/frontend/include/map_grid.html:56
 msgid "Show map"
 msgstr "Mostra mappa"
 
-#: templates/frontend/include/menu.html:9
+#: frontend/templates/frontend/include/menu.html:9
 msgid "Adminstration"
 msgstr "Amministrazione"
 
-#: templates/frontend/include/sidebar.html:16 templates/frontend/index.html:65
+#: frontend/templates/frontend/include/sidebar.html:16
+#: frontend/templates/frontend/index.html:75
 msgid "Maps"
 msgstr "Mappe"
 
-#: templates/frontend/index.html:73
+#: frontend/templates/frontend/index.html:83
 msgid "Thematic macrogroups"
 msgstr "Macrogruppi tematici"
 
-#: templates/frontend/index.html:83
+#: frontend/templates/frontend/index.html:93
 msgid "Thematic groups"
 msgstr "Gruppi tematici"
