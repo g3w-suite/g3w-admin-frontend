@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 from .views import *
 
 urlpatterns = [
 
-    url(r'^$', FrontendView.as_view(), name='frontend'),
-    url(r'^jx/login/$', LoginAjaxView.as_view(), name='frontend-ajax-login'),
+    path('', FrontendView.as_view(), name='frontend'),
+    path('jx/login/', LoginAjaxView.as_view(), name='frontend-ajax-login'),
 ]
