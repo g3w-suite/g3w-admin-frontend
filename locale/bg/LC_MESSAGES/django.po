@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Ivan Ivanov <ivan.ivanov@suricactus.com>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-23 05:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: frontend/templates/frontend/include/about.html:4
+#: frontend/templates/frontend/include/sidebar.html:8
+msgid "About It"
+msgstr "Относно"
+
+#: frontend/templates/frontend/include/home.html:23
+msgid "Photo by"
+msgstr "Снимка от"
+
+#: frontend/templates/frontend/include/home.html:35
+msgid "Powered by"
+msgstr "Работи с"
+
+#: frontend/templates/frontend/include/login.html:4
+#: frontend/templates/frontend/include/sidebar.html:24
+msgid "Admin"
+msgstr "Админ"
+
+#: frontend/templates/frontend/include/login.html:4
+#: frontend/templates/frontend/include/login.html:33
+#: frontend/templates/frontend/include/sidebar.html:24
+msgid "Login"
+msgstr "Вход"
+
+#: frontend/templates/frontend/include/login.html:7
+#, fuzzy
+#| msgid "Access to backend administration stystem or logout"
+msgid "Access to backend administration system or logout"
+msgstr "Достъп до администраторската система или изход"
+
+#: frontend/templates/frontend/include/login.html:9
+msgid "Login to go backend administration system"
+msgstr "Влез в администраторската система"
+
+#: frontend/templates/frontend/include/login.html:21
+msgid "Backend"
+msgstr "Админ"
+
+#: frontend/templates/frontend/include/login.html:24
+msgid "Logout"
+msgstr "Изход"
+
+#: frontend/templates/frontend/include/login.html:31
+msgid "USERNAME"
+msgstr "ПОТРЕБИТЕЛ"
+
+#: frontend/templates/frontend/include/login.html:32
+msgid "PASSWORD"
+msgstr "ПАРОЛА"
+
+#: frontend/templates/frontend/include/map_grid.html:5
+msgid "Group maps"
+msgstr "Групи карти"
+
+#: frontend/templates/frontend/include/map_grid.html:23
+msgid "Back to group"
+msgstr "Обратко към група"
+
+#: frontend/templates/frontend/include/map_grid.html:56
+msgid "Show map"
+msgstr "Покажи карта"
+
+#: frontend/templates/frontend/include/menu.html:5
+msgid "Home"
+msgstr "Начало"
+
+#: frontend/templates/frontend/include/menu.html:9
+msgid "Adminstration"
+msgstr "Администрация"
+
+#: frontend/templates/frontend/include/menu.html:12
+msgid "All Pages"
+msgstr "Всички страници"
+
+#: frontend/templates/frontend/include/sidebar.html:16
+#: frontend/templates/frontend/index.html:79
+msgid "Maps"
+msgstr "Карти"
+
+#: frontend/templates/frontend/index.html:87
+msgid "Thematic macrogroups"
+msgstr "Тематични макрогрупи"
+
+#: frontend/templates/frontend/index.html:97
+msgid "Thematic groups"
+msgstr "Тематични групи"
