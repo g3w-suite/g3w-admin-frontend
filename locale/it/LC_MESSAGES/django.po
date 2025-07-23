@@ -35,7 +35,9 @@ msgid "Login"
 msgstr ""
 
 #: frontend/templates/frontend/include/login.html:7
-msgid "Access to backend administration stystem or logout"
+#, fuzzy
+#| msgid "Access to backend administration stystem or logout"
+msgid "Access to backend administration system or logout"
 msgstr "Accedi alla sezione di amministrazione o esci"
 
 #: frontend/templates/frontend/include/login.html:9
