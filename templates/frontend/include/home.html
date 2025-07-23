@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <div id="home_wrapper">
     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 home">
       <div class="home-block">
@@ -19,7 +20,7 @@
          <p>{{ generaldata.home_description|safe }}
              {% if home_image.author %}
              <br><br>
-             Photo by
+             {% trans 'Photo by' %}
              {% if home_image.author_url %}
              <a href="{{ home_image.author_url }}">
              {% endif %}
@@ -31,7 +32,7 @@
          </p>
         {% if powerd_by %}
          <p>
-             <a href="http://gis3w.it"><img style="float:right;" src="{% static 'frontend/images/logo_gis3w.png' %}"></a><span style="float:right; margin-right: 4px;">Powerd by</span></span>
+             <a href="http://gis3w.it"><img style="float:right;" src="{% static 'frontend/images/logo_gis3w.png' %}"></a><span style="float:right; margin-right: 4px;">{% trans 'Powered by' %}</span></span>
          </p>
         {% endif %}
          <!--
