@@ -4,7 +4,7 @@
 <div class="page_name tk-museo-sans">{% if user.is_authenticated %}{% trans 'Admin' %}{% else %}{% trans 'Login' %}{% endif %}</div>
 <h1 class="tk-source-sans-pro">
     {% if user.is_authenticated %}
-    {% trans 'Access to backend administration stystem or logout' %}
+    {% trans 'Access to backend administration system or logout' %}
     {% else %}
     {% trans 'Login to go backend administration system' %}
     {% endif %}
@@ -28,8 +28,8 @@
         <form class="contact-form" action="{% url 'frontend-ajax-login' %}">
             <div class="login-errors hidden"></div>
             {% csrf_token %}
-            <input type="text" class="form-control" id="user" name="username" placeholder="USERNAME">
-            <input type="password" class="form-control" id="password" name="password" placeholder="PASSWORD">
+            <input type="text" class="form-control" id="user" name="username" placeholder="{% trans 'USERNAME' %}">
+            <input type="password" class="form-control" id="password" name="password" placeholder="{% trans 'PASSWORD' %}">
             <button class="submit-btn submit-login" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."> {% trans 'Login' %}</button>
         </form>
         <div id="result-message" role="alert"></div>
