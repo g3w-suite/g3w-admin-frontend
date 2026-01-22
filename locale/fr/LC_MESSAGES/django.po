@@ -21,61 +21,61 @@ msgstr ""
 #: templates/frontend/include/about.html:4
 #: templates/frontend/include/sidebar.html:8
 msgid "About It"
-msgstr ""
+msgstr "À propos"
 
 #: templates/frontend/include/login.html:4
 #: templates/frontend/include/sidebar.html:24
 msgid "Admin"
-msgstr ""
+msgstr "Administration"
 
 #: templates/frontend/include/login.html:4
 #: templates/frontend/include/login.html:33
 #: templates/frontend/include/sidebar.html:24
 msgid "Login"
-msgstr ""
+msgstr "Connexion"
 
 #: templates/frontend/include/login.html:7
 #, fuzzy
 #| msgid "Access to backend administration stystem or logout"
 msgid "Access to backend administration system or logout"
-msgstr ""
+msgstr "Accès à l'interface d'administration ou se déconnecter"
 
 #: templates/frontend/include/login.html:9
 msgid "Login to go backend administration system"
-msgstr ""
+msgstr "Accès à l'interface d'administration"
 
 #: templates/frontend/include/login.html:21
 msgid "Backend"
-msgstr ""
+msgstr "Administration"
 
 #: templates/frontend/include/login.html:24
 msgid "Logout"
-msgstr ""
+msgstr "Se déconnecter"
 
 #: templates/frontend/include/map_grid.html:5
 msgid "Group maps"
-msgstr ""
+msgstr "Groupes cartographiques"
 
 #: templates/frontend/include/map_grid.html:23
 msgid "Back to group"
-msgstr ""
+msgstr "Retour au groupe"
 
 #: templates/frontend/include/map_grid.html:56
 msgid "Show map"
-msgstr ""
+msgstr "Afficher la carte"
 
 #: templates/frontend/include/menu.html:9
 msgid "Adminstration"
-msgstr ""
+msgstr "Administration"
 
 #: templates/frontend/include/sidebar.html:16 templates/frontend/index.html:75
 msgid "Maps"
-msgstr ""
+msgstr "Cartes"
 
 #: templates/frontend/index.html:83
 msgid "Thematic macrogroups"
-msgstr ""
+msgstr "Macro groupes cartographiques"
 
 #: templates/frontend/index.html:93
 msgid "Thematic groups"
-msgstr ""
+msgstr "Groupes thématiques"
