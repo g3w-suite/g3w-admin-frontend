@@ -1,5 +1,7 @@
 # G3W-ADMIN-FRONTEND
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/g3w-suite/g3w-admin-frontend)
+
 G3W-ADMIN fronted portal for G3W-SUITE.
 
 ![Portal GUI](frontend.png)
